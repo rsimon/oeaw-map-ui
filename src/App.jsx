@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Map, TileLayer } from 'react-leaflet';
 import Control from 'react-leaflet-control';
-import PersonList from './components/PersonList.jsx';
-import SearchBox from './components/SearchBox.jsx';
-import ZoomControl from './components/controls/ZoomControl.jsx';
+import PersonList from './Sidebar/components/PersonList.jsx';
+import SearchBox from './Sidebar/components/SearchBox.jsx';
+import ZoomControl from './MapControls/components/ZoomControl.jsx';
 
 import '../public/style/app.scss';
 
@@ -44,8 +44,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div
+        className='container'>
+
         <PersonList></PersonList>
+
         <SearchBox></SearchBox>
 
         <Map
@@ -60,7 +63,9 @@ export default class App extends Component {
             url={stamenTonerTiles} />
         </Map>
 
-        <ZoomControl zoomIn={this.zoomIn.bind(this)} zoomOut={this.zoomOut.bind(this)}></ZoomControl>
+        <ZoomControl
+          zoomIn={this.zoomIn.bind(this)}
+          zoomOut={this.zoomOut.bind(this)} />
       </div>
     );
   }
