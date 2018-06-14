@@ -5,6 +5,8 @@ import Control from 'react-leaflet-control';
 import PersonList from './components/PersonList.jsx';
 import SearchBox from './components/SearchBox.jsx';
 
+import '../public/style/app.scss';
+
 const stamenTonerTiles = 'https://dare.ht.lu.se/tiles/imperium/{z}/{x}/{y}.png';
 const stamenTonerAttr = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 const mapCenter = [48.1638, 16.9528];
