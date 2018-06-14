@@ -1,11 +1,15 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: [ './src/App.jsx' ],
-  output: {
-    path: __dirname,
-    filename: "app.js"
+  entry: {
+    'app': './src/App.jsx',
+    'app.min': './src/App.jsx'
   },
+  output: {
+    path: __dirname + '/dist',
+    filename: "[name].js"
+  },
+  devtool: 'source-map',
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -32,5 +36,11 @@ module.exports = {
     historyApiFallback: {
       index: '/'
     }
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    })
+  ]
 };
