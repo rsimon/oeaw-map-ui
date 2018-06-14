@@ -7,25 +7,25 @@ import MapControls from './MapControls/MapControls.jsx';
 
 import '../public/style/app.scss';
 
-const stamenTonerTiles = 'https://dare.ht.lu.se/tiles/imperium/{z}/{x}/{y}.png';
-const stamenTonerAttr = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+const tiles = 'https://dare.ht.lu.se/tiles/imperium/{z}/{x}/{y}.png';
+const attribution = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 const mapCenter = [48.1638, 16.9528];
 const zoomLevel = 8;
 
 export default class App extends Component {
 
-  openInfo() {
-
+  openAppInfo() {
+    console.log('TODO open app info')
   }
 
   zoomIn() {
-    const leafletMap = this.leafletMap.leafletElement;
-    leafletMap.zoomIn();
+    const map = this.leafletMap.leafletElement;
+    map.zoomIn();
   }
 
   zoomOut() {
-    const leafletMap = this.leafletMap.leafletElement;
-    leafletMap.zoomOut();
+    const map = this.leafletMap.leafletElement;
+    map.zoomOut();
   }
 
   render() {
@@ -33,18 +33,18 @@ export default class App extends Component {
       <div className='container'>
         <Map
           className='map'
-          zoomControl={ false }
+          zoomControl={false}
           ref={m => {this.leafletMap = m;}}
-          center={ mapCenter }
-          zoom={ zoomLevel }>
+          center={mapCenter}
+          zoom={zoomLevel}>
 
           <TileLayer
-            attribution={stamenTonerAttr}
-            url={stamenTonerTiles} />
+            attribution={attribution}
+            url={tiles} />
         </Map>
 
         <MapControls
-          onOpenInfo={this.openInfo.bind(this)}
+          onOpenAppInfo={this.openAppInfo.bind(this)}
           onZoomIn={this.zoomIn.bind(this)}
           onZoomOut={this.zoomOut.bind(this)} />
       </div>

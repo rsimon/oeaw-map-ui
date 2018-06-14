@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 export default class ZoomControl extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="control zoom">
@@ -14,4 +10,5 @@ export default class ZoomControl extends Component {
       </div>
     )
   }
+  
 }
