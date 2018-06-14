@@ -4,6 +4,7 @@ import { Map, TileLayer } from 'react-leaflet';
 import Control from 'react-leaflet-control';
 import PersonList from './components/PersonList.jsx';
 import SearchBox from './components/SearchBox.jsx';
+import ZoomControl from './components/controls/ZoomControl.jsx';
 
 import '../public/style/app.scss';
 
@@ -17,10 +18,16 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = { currentZoomLevel: zoomLevel };
-    this.handleUpPanClick = this.handleUpPanClick.bind(this);
-    this.handleRightPanClick = this.handleRightPanClick.bind(this);
-    this.handleLeftPanClick = this.handleLeftPanClick.bind(this);
-    this.handleDownPanClick = this.handleDownPanClick.bind(this);
+  }
+
+  zoomIn() {
+    const leafletMap = this.leafletMap.leafletElement;
+    leafletMap.zoomIn();
+  }
+
+  zoomOut() {
+    const leafletMap = this.leafletMap.leafletElement;
+    leafletMap.zoomOut();
   }
 
   componentDidMount() {
@@ -35,62 +42,25 @@ export default class App extends Component {
     this.setState({ currentZoomLevel: newZoomLevel });
   }
 
-  handleUpPanClick() {
-    const leafletMap = this.leafletMap.leafletElement;
-    leafletMap.panBy([0, -100]);
-  }
-
-  handleRightPanClick() {
-    const leafletMap = this.leafletMap.leafletElement;
-    leafletMap.panBy([100, 0]);
-  }
-
-  handleLeftPanClick() {
-    const leafletMap = this.leafletMap.leafletElement;
-    leafletMap.panBy([-100, 0]);
-  }
-
-  handleDownPanClick() {
-    const leafletMap = this.leafletMap.leafletElement;
-    leafletMap.panBy([0, 100]);
-  }
-
   render() {
     return (
       <div className='container'>
         <PersonList></PersonList>
         <SearchBox></SearchBox>
+
         <Map
           className='map'
-          ref={m => { this.leafletMap = m; }}
-          center={mapCenter}
-          zoom={zoomLevel}>
+          zoomControl={ false }
+          ref={m => {this.leafletMap = m;}}
+          center={ mapCenter }
+          zoom={ zoomLevel }>
 
           <TileLayer
             attribution={stamenTonerAttr}
             url={stamenTonerTiles} />
-
-          <Control position="topright">
-            <div style={{
-              backgroundColor: 'black',
-              padding: '5px' }}>
-
-              <div style={{ marginLeft: '37px' }}>
-                <button onClick={this.handleUpPanClick}>Pan up</button>
-              </div>
-
-              <div>
-                <button onClick={this.handleLeftPanClick}>Pan left</button>
-                <button onClick={this.handleRightPanClick}>Pan right</button>
-              </div>
-
-              <div style={{ marginLeft: '30px' }}>
-                <button onClick={this.handleDownPanClick}>Pan down</button>
-              </div>
-
-            </div>
-          </Control>
         </Map>
+
+        <ZoomControl zoomIn={this.zoomIn.bind(this)} zoomOut={this.zoomOut.bind(this)}></ZoomControl>
       </div>
     );
   }
