@@ -57,10 +57,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <PersonList></PersonList>
         <SearchBox></SearchBox>
         <Map
+          className='map'
           ref={m => { this.leafletMap = m; }}
           center={mapCenter}
           zoom={zoomLevel}>
