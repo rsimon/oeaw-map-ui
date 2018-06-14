@@ -13,19 +13,19 @@ function rowRenderer ({
   style        // Style object to be applied to row (to position it)
 }) {
   return (
-    <div
-      key={key}
-      style={style}
-    >
-      {list[index]}
-    </div>
+    <div key={key} style={style}>{list[index]}</div>
   )
 }
 
 export default class PersonList extends Component {
   render() {
     return (
-      <List width={300} height={300} rowCount={list.length} rowHeight={20} rowRenderer={rowRenderer}/>
+      <List
+        width={300}
+        height={300}
+        rowCount={list.length}
+        rowHeight={20}
+        rowRenderer={rowRenderer}/>
     )
   }
 }
