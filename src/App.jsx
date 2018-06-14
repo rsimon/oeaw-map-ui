@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Map, TileLayer } from 'react-leaflet';
 import Control from 'react-leaflet-control';
-import PersonList from './Sidebar/components/PersonList.jsx';
-import SearchBox from './Sidebar/components/SearchBox.jsx';
-import ZoomControl from './MapControls/components/ZoomControl.jsx';
+
+import MapControls from './MapControls/MapControls.jsx';
 
 import '../public/style/app.scss';
 
@@ -15,9 +14,8 @@ const zoomLevel = 8;
 
 export default class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { currentZoomLevel: zoomLevel };
+  openInfo() {
+
   }
 
   zoomIn() {
@@ -30,27 +28,9 @@ export default class App extends Component {
     leafletMap.zoomOut();
   }
 
-  componentDidMount() {
-    const leafletMap = this.leafletMap.leafletElement;
-    leafletMap.on('zoomend', () => {
-      const updatedZoomLevel = leafletMap.getZoom();
-      this.handleZoomLevelChange(updatedZoomLevel);
-    });
-  }
-
-  handleZoomLevelChange(newZoomLevel) {
-    this.setState({ currentZoomLevel: newZoomLevel });
-  }
-
   render() {
     return (
-      <div
-        className='container'>
-
-        <PersonList></PersonList>
-
-        <SearchBox></SearchBox>
-
+      <div className='container'>
         <Map
           className='map'
           zoomControl={ false }
@@ -63,9 +43,10 @@ export default class App extends Component {
             url={stamenTonerTiles} />
         </Map>
 
-        <ZoomControl
-          zoomIn={this.zoomIn.bind(this)}
-          zoomOut={this.zoomOut.bind(this)} />
+        <MapControls
+          onOpenInfo={this.openInfo.bind(this)}
+          onZoomIn={this.zoomIn.bind(this)}
+          onZoomOut={this.zoomOut.bind(this)} />
       </div>
     );
   }
