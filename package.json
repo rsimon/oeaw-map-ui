@@ -15,6 +15,7 @@
     "react-dom": "15.4.1",
     "react-leaflet": "1.9.1",
     "react-leaflet-control": "1.4.1",
+    "react-transition-group": "2.3.1",
     "react-virtualized": "9.19.1"
   },
   "devDependencies": {

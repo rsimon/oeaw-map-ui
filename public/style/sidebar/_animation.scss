@@ -1,0 +1,18 @@
+.sidebar.slide-enter {
+  transition: 300ms;
+  left:0;
+}
+
+.sidebar.slide-enter-done {
+  left:0;
+}
+
+.sidebar.slide-exit {
+  transition: 300ms;
+  left:-400px;
+}
+
+.sidebar.slide-exit-done {
+  left:-400px;
+  @include no-shadow();
+}
