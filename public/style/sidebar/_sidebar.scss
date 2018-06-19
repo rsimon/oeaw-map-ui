@@ -2,11 +2,13 @@
 @import 'searchbox';
 @import 'personlist';
 
+$sidebar-width:40%;
+
 .sidebar {
   position:absolute;
   top:0;
-  left:-400px;
-  width:400px;
+  left:-$sidebar-width;
+  width:$sidebar-width;
   height:100%;
   padding:0;
   z-index:9998;
@@ -62,10 +64,10 @@
 
 .sidebar.slide-exit {
   transition: 300ms;
-  left:-400px;
+  left:-$sidebar-width;
 }
 
 .sidebar.slide-exit-done {
-  left:-400px;
+  left:-$sidebar-width;
   @include no-shadow();
 }

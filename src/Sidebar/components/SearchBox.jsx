@@ -9,7 +9,7 @@ export default class SearchBox extends Component {
   render() {
     return (
       <div className="searchbox">
-        <input ref={(c) => this._input = c}type="text" placeholder="Search..."/>
+        <input ref={(c) => this._input = c}type="text" placeholder="Search list..."/>
       </div>
     )
   }
