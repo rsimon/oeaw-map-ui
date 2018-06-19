@@ -1,5 +1,5 @@
 @import '../globals';
-@import 'animation';
+@import 'searchbox';
 
 .sidebar {
   position:absolute;
@@ -8,6 +8,7 @@
   width:400px;
   height:100%;
   z-index:9998;
+  padding:0;
   @include box-shadow(0, 0, 18px, rgba(0, 0, 0, 0.35));
 
   .tab {
@@ -40,6 +41,26 @@
     width:100%;
     height:100%;
     z-index:9998;
+    padding:0;
   }
 
+}
+
+.sidebar.slide-enter {
+  transition: 300ms;
+  left:0;
+}
+
+.sidebar.slide-enter-done {
+  left:0;
+}
+
+.sidebar.slide-exit {
+  transition: 300ms;
+  left:-400px;
+}
+
+.sidebar.slide-exit-done {
+  left:-400px;
+  @include no-shadow();
 }

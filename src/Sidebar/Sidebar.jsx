@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import SearchBox from './components/SearchBox.jsx';
 
 export default class Sidebar extends Component {
 
@@ -19,10 +20,8 @@ export default class Sidebar extends Component {
       <CSSTransition in={this.state.visible} timeout={300} classNames="slide">
         <div className="sidebar">
           <div className="content">
+            <SearchBox></SearchBox>
             {/*
-            <SearchBox>
-              <!-- TODO -->
-            </SearchBox>
             <PersonList>
               <!-- TODO -->s
             </PersonList>
