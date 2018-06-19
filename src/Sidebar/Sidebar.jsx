@@ -18,13 +18,21 @@ export default class Sidebar extends Component {
     }));
   }
 
+  onSearchChange(query) {
+    this._personlist.filter(query);
+  }
+
   render() {
     return (
       <CSSTransition in={this.state.visible} timeout={300} classNames="slide">
         <div className="sidebar">
           <div className="content">
-            <SearchBox ref={(c) => this._searchbox = c}></SearchBox>
-            <PersonList></PersonList>
+            <SearchBox
+              ref={(c) => this._searchbox = c}
+              onChange={this.onSearchChange.bind(this)} />
+
+            <PersonList
+              ref={(c) => this._personlist = c} />
           </div>
           <div className="tab">
             <button onClick={this.toggle.bind(this)}>&#xf002;</button>

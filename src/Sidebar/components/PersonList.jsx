@@ -40,27 +40,41 @@ const list = [
   { name: 'Gabriel', date:1984, gender:'M' }
 ];
 
-function rowRenderer ({
-  key,         // Unique key within array of rows
-  index,       // Index of row within collection
-  isScrolling, // The List is currently being scrolled
-  isVisible,   // This row is visible within the List (eg it is not an overscanned row)
-  style        // Style object to be applied to row (to position it)
-}) {
-  const p = list[index];
-
-  return (
-    <div key={key} style={style} className="row">
-      <span className="name">{p.name}</span>
-      <span className="date">{p.date}</span>
-      <span className="gender">
-        {(p.gender === 'M') ? String.fromCharCode(0xf222) :  String.fromCharCode(0xf221)}
-      </span>
-    </div>
-  )
-}
-
 export default class PersonList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { list: list };
+  }
+
+  rowRenderer({
+    key,         // Unique key within array of rows
+    index,       // Index of row within collection
+    isScrolling, // The List is currently being scrolled
+    isVisible,   // This row is visible within the List (eg it is not an overscanned row)
+    style        // Style object to be applied to row (to position it)
+  }) {
+    const p = this.state.list[index];
+
+    return (
+      <div key={key} style={style} className="row">
+        <span className="name">{p.name}</span>
+        <span className="date">{p.date}</span>
+        <span className="gender">
+          {(p.gender === 'M') ? String.fromCharCode(0xf222) :  String.fromCharCode(0xf221)}
+        </span>
+      </div>
+    )
+  }
+
+  filter(query) {
+    const filtered = list.filter(person => {
+      return person.name.toLowerCase().startsWith(query.toLowerCase());
+    });
+    
+    this.setState({list: filtered});
+  }
+
   render() {
     return (
       <div className="personlist">
@@ -77,9 +91,9 @@ export default class PersonList extends Component {
                 className="rows"
                 width={width}
                 height={height}
-                rowCount={list.length}
+                rowCount={this.state.list.length}
                 rowHeight={40}
-                rowRenderer={rowRenderer}/>
+                rowRenderer={this.rowRenderer.bind(this)}/>
             )}
           </AutoSizer>
         </div>
