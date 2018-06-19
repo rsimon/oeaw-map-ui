@@ -11,3 +11,14 @@ Starting point: https://www.azavea.com/blog/2016/12/05/getting-started-with-reac
 ## Build
 
 Run `npm run bundle` to build the distributable .js file. The file will be in the `dist` folder.
+
+To enable a minified build, add the following to `webpack.config.js`:
+
+```json
+plugins: [
+  new webpack.optimize.UglifyJsPlugin({
+    include: /\.min\.js$/,
+    minimize: true
+  })
+]
+```

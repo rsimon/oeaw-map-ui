@@ -36,11 +36,5 @@ module.exports = {
     historyApiFallback: {
       index: '/'
     }
-  },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      include: /\.min\.js$/,
-      minimize: true
-    })
-  ]
+  }
 };

@@ -8,7 +8,7 @@ import MapControls from './MapControls/MapControls.jsx';
 import '../public/style/app.scss';
 
 const tiles = 'https://dare.ht.lu.se/tiles/imperium/{z}/{x}/{y}.png';
-const attribution = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+const attribution = 'Map tiles: <a href="http://dare.ht.lu.se/">DARE 2018</a>';
 const mapCenter = [48.1638, 16.9528];
 const zoomLevel = 8;
 

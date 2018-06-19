@@ -4,7 +4,7 @@ export default class InfoButton extends Component {
 
   render() {
     return (
-      <button className="control info" onClick={this.props.onClick}>i</button>
+      <button className="control info" onClick={this.props.onClick}>&#xf129;</button>
     )
   }
 
