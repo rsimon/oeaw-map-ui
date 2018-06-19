@@ -1,0 +1,44 @@
+@import '../globals';
+
+.sidebar {
+  position:absolute;
+  top:0;
+  left:0;
+  width:400px;
+  height:100%;
+  z-index:9998;
+  @include box-shadow(0, 0, 18px, rgba(0, 0, 0, 0.35));
+
+  .tab {
+    z-index:9997;
+
+    button {
+      position:absolute;
+      top:20px;
+      right:-44px;
+      color:#fff;
+      width:44px;
+      height:44px;
+      text-align:left;
+      padding-left:8px;
+      background-color:$ocean;
+      margin-bottom:10px;
+      @include rounded-corners-right(100%);
+      @include box-shadow(0, 0, 18px, rgba(0, 0, 0, 0.35));
+    }
+
+    button:hover {
+      background-color:$ocean-hover;
+    }
+
+  }
+
+  .content {
+    position:relative;
+    background-color:#fff;
+    width:100%;
+    height:100%;
+    z-index:9998;
+  }
+
+}

@@ -8,17 +8,10 @@
 
   button {
     color:$standard-type;
-    display:block;
     width:44px;
     height:44px;
-    font-family:FontAwesome;
-    font-size:20px;
-    line-height:44px;
     background-color:#fff;
-    border:0;
-    outline:none;
     margin-bottom:10px;
-    cursor:pointer;
     @include rounded-corners(100%);
     @include box-shadow(0, 0, 18px, rgba(0, 0, 0, 0.35));
   }

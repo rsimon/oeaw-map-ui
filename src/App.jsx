@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Map, TileLayer } from 'react-leaflet';
 import Control from 'react-leaflet-control';
 
+import Sidebar from './Sidebar/Sidebar.jsx';
 import MapControls from './MapControls/MapControls.jsx';
 
 import '../public/style/app.scss';
@@ -42,6 +43,8 @@ export default class App extends Component {
             attribution={attribution}
             url={tiles} />
         </Map>
+
+        <Sidebar></Sidebar>
 
         <MapControls
           onOpenAppInfo={this.openAppInfo.bind(this)}
