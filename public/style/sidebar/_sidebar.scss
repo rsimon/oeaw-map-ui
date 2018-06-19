@@ -24,14 +24,14 @@
       height:44px;
       text-align:left;
       padding-left:8px;
-      background-color:$ocean;
+      background-color:$oeaw-blue;
       margin-bottom:10px;
       @include rounded-corners-right(100%);
       @include box-shadow(0, 0, 18px, rgba(0, 0, 0, 0.35));
     }
 
     button:hover {
-      background-color:$ocean-hover;
+      background-color:$oeaw-blue-hover;
     }
 
   }
