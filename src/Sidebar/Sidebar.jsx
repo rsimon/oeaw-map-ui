@@ -12,6 +12,7 @@ export default class Sidebar extends Component {
   }
 
   toggle() {
+    if (!this.state.visible) this._searchbox.focus();
     this.setState(previous => ({
       visible: !previous.visible
     }));
@@ -22,7 +23,7 @@ export default class Sidebar extends Component {
       <CSSTransition in={this.state.visible} timeout={300} classNames="slide">
         <div className="sidebar">
           <div className="content">
-            <SearchBox></SearchBox>
+            <SearchBox ref={(c) => this._searchbox = c}></SearchBox>
             <PersonList></PersonList>
           </div>
           <div className="tab">
