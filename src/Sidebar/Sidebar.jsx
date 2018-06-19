@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+
 import SearchBox from './components/SearchBox.jsx';
+import PersonList from './components/PersonList.jsx';
 
 export default class Sidebar extends Component {
 
@@ -21,11 +23,7 @@ export default class Sidebar extends Component {
         <div className="sidebar">
           <div className="content">
             <SearchBox></SearchBox>
-            {/*
-            <PersonList>
-              <!-- TODO -->s
-            </PersonList>
-            */}
+            <PersonList></PersonList>
           </div>
           <div className="tab">
             <button onClick={this.toggle.bind(this)}>&#xf002;</button>
