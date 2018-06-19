@@ -7,12 +7,13 @@
   input {
     height:50px;
     color:$standard-type;
+    font-family:Lato;
+    font-size:18px;
     width:100%;
     border:none;
     outline:none;
     margin:0;
     padding:15px 10px;
-    font-size:16px;
     box-sizing:border-box;
     border-bottom:1px solid $lightgrey-border;
   }
