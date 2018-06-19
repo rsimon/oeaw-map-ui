@@ -14,7 +14,7 @@ Run `npm run bundle` to build the distributable .js file. The file will be in th
 
 To enable a minified build, add the following to `webpack.config.js`:
 
-```json
+```javascript
 plugins: [
   new webpack.optimize.UglifyJsPlugin({
     include: /\.min\.js$/,
