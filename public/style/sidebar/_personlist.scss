@@ -7,8 +7,10 @@
 
   .header {
     height:50px;
+    box-sizing:border-box;
     background-color:#fff;
     font-weight:bold;
+    padding:10px 20px 10px 10px;
   }
 
   .container {
@@ -23,13 +25,42 @@
             box-shadow:inset 1px 4px 12px -6px rgba(0, 0, 0, 0.35);
   }
 
+  .header, .row {
+    display:table;
+    width:100%;
+
+    span {
+      vertical-align:middle;
+      display:table-cell;
+    }
+
+    span.date {
+      width:100px;
+    }
+
+    span.gender {
+      width:50px;
+      text-align:center;
+    }
+
+  }
+
   .row {
-    padding:20px;
+    position:relative;
+    box-sizing:border-box;
+    padding:10px 20px 10px 10px;
+    border-bottom:1px solid $lightgrey-border;
 
     .gender {
       font-family:FontAwesome;
+      font-size:19px;
     }
 
+  }
+
+  .row:hover {
+    cursor:pointer;
+    background-color:rgba(255, 255, 255, 0.45);
   }
 
 }

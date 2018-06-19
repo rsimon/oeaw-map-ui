@@ -51,7 +51,7 @@ export default class PersonList extends Component {
                 width={width}
                 height={height}
                 rowCount={list.length}
-                rowHeight={80}
+                rowHeight={40}
                 rowRenderer={rowRenderer}/>
             )}
           </AutoSizer>
