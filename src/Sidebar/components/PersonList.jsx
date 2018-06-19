@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List } from 'react-virtualized';
+import { AutoSizer, List } from 'react-virtualized';
 
 const list = [
   { name: 'John',    date:1976, gender:'M' },
@@ -23,7 +23,7 @@ function rowRenderer ({
   const p = list[index];
 
   return (
-    <div key={key} style={style}>
+    <div key={key} style={style} className="row">
       <span className="name">{p.name}</span>
       <span className="date">{p.date}</span>
       <span className="gender">
@@ -36,13 +36,27 @@ function rowRenderer ({
 export default class PersonList extends Component {
   render() {
     return (
-      <List
-        className="personlist"
-        width={300}
-        height={300}
-        rowCount={list.length}
-        rowHeight={20}
-        rowRenderer={rowRenderer}/>
+      <div className="personlist">
+        <div className="header">
+          <span className="name">Name</span>
+          <span className="date">Date</span>
+          <span className="gender">Gender</span>
+        </div>
+
+        <div className="container">
+          <AutoSizer>
+            {({ height, width}) => (
+              <List
+                className="rows"
+                width={width}
+                height={height}
+                rowCount={list.length}
+                rowHeight={80}
+                rowRenderer={rowRenderer}/>
+            )}
+          </AutoSizer>
+        </div>
+      </div>
     )
   }
 }
