@@ -43,6 +43,10 @@ export default class App extends Component {
     map.zoomOut();
   }
 
+  onMarkerClick(idx) {
+    console.log(idx);
+  }
+
   render() {
     return (
       <div className='container'>
@@ -67,7 +71,9 @@ export default class App extends Component {
                 opacity={1}
                 fillColor='#e75444'
                 fillOpacity={1}
-                weight={1.5} >
+                weight={1.5}
+                onClick={e => this.onMarkerClick.bind(this)(idx)}>
+                
                 <Popup>
                   <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
                 </Popup>
