@@ -22,7 +22,6 @@ export default class App extends Component {
     this.state = { markers: markers };
   }
 
-
   openAppInfo() {
     console.log('TODO open app info')
   }
