@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, TileLayer, LayerGroup, CircleMarker, Popup } from 'react-leaflet';
 import Control from 'react-leaflet-control';
 
 import Sidebar from './Sidebar/Sidebar.jsx';
@@ -13,7 +13,15 @@ const attribution = 'Map tiles: <a href="http://dare.ht.lu.se/">DARE 2018</a>';
 const mapCenter = [48.1638, 16.9528];
 const zoomLevel = 8;
 
+const markers = [[51.505, -0.09], [48, 16]]
+
 export default class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { markers: markers };
+  }
+
 
   openAppInfo() {
     console.log('TODO open app info')
@@ -42,6 +50,16 @@ export default class App extends Component {
           <TileLayer
             attribution={attribution}
             url={tiles} />
+
+          <LayerGroup>
+            {this.state.markers.map((position, idx) =>
+              <CircleMarker key={`marker-${idx}`} center={position}>
+                <Popup>
+                  <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+                </Popup>
+              </CircleMarker>
+            )}
+          </LayerGroup>
         </Map>
 
         <Sidebar></Sidebar>
