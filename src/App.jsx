@@ -15,13 +15,11 @@ const attribution = 'Map tiles: <a href="http://dare.ht.lu.se/">DARE 2018</a>';
 const mapCenter = [48.1638, 16.9528];
 const zoomLevel = 8;
 
-const markers = [[51.505, -0.09], [48, 16]]
-
 export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { markers: markers };
+    this.state = { markers: [] };
   }
 
   componentDidMount() {
@@ -61,7 +59,15 @@ export default class App extends Component {
 
           <LayerGroup>
             {this.state.markers.map((position, idx) =>
-              <CircleMarker key={`marker-${idx}`} center={position}>
+              <CircleMarker
+                key={`marker-${idx}`}
+                center={position}
+                radius={5}
+                color='#a64a40'
+                opacity={1}
+                fillColor='#e75444'
+                fillOpacity={1}
+                weight={1.5} >
                 <Popup>
                   <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
                 </Popup>
