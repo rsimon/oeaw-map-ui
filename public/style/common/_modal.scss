@@ -1,0 +1,25 @@
+.modal {
+  position:absolute;
+  top:10%;
+  right:10%;
+  bottom:10%;
+  left:10%;
+  background-color:#fff;
+  z-index:9999;
+  @include rounded-corners(3px);
+  @include box-shadow(0, 0, 18px, rgba(0, 0, 0, 0.35));
+  display:inherit;
+
+  .exit {
+    position:absolute;
+    top:0;
+    right:7px;
+    background-color:transparent;
+    color:$standard-type;
+  }
+
+}
+
+.modal.hidden {
+  display:none;
+}

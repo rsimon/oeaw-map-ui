@@ -3,8 +3,10 @@ import { render } from 'react-dom';
 import { Map, TileLayer, LayerGroup, CircleMarker, Popup } from 'react-leaflet';
 import Control from 'react-leaflet-control';
 
-import Sidebar from './Sidebar/Sidebar.jsx';
+import AppInfoModal from './AppInfoModal/AppInfoModal.jsx';
+import LocationDetailsModal from './LocationDetailsModal/LocationDetailsModal.jsx';
 import MapControls from './MapControls/MapControls.jsx';
+import Sidebar from './Sidebar/Sidebar.jsx';
 
 import '../public/style/app.scss';
 
@@ -23,7 +25,7 @@ export default class App extends Component {
   }
 
   openAppInfo() {
-    console.log('TODO open app info')
+    this._appinfo.show();
   }
 
   zoomIn() {
@@ -67,6 +69,9 @@ export default class App extends Component {
           onOpenAppInfo={this.openAppInfo.bind(this)}
           onZoomIn={this.zoomIn.bind(this)}
           onZoomOut={this.zoomOut.bind(this)} />
+
+        <AppInfoModal ref={c => this._appinfo = c} />
+        <LocationDetailsModal />
       </div>
     );
   }

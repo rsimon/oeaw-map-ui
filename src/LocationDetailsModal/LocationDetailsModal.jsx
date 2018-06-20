@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class AppInfoModal extends Component {
+export default class LocationDetailsModal extends Component {
 
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ export default class AppInfoModal extends Component {
 
   render() {
     return (
-      <div className={this.state.visible ? 'modal appinfo' : 'modal appinfo hidden'}>
+      <div className={this.props.visible ? 'modal locationdetails' : 'modal locationdetails hidden'}>
         <button className="exit" onClick={this.hide.bind(this)}>&#xf00d;</button>
       </div>
     )
