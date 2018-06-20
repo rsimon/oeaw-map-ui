@@ -19,10 +19,19 @@ export default class PersonDetails extends Component {
     });
   }
 
+  hide() {
+    this.setState({
+      visible: false,
+      person: undefined
+    });
+  }
+
   render() {
     return (
       <CSSTransition in={this.state.visible} timeout={300} classNames="slide">
-        <div className="persondetails"></div>
+        <div className="persondetails">
+          <button className="exit" onClick={this.hide.bind(this)}>&#xf00d;</button>
+        </div>
       </CSSTransition>
     )
   }
