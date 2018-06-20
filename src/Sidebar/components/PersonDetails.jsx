@@ -12,6 +12,13 @@ export default class PersonDetails extends Component {
     };
   }
 
+  show(person) {
+    this.setState({
+      visible: true,
+      person: person
+    });
+  }
+
   render() {
     return (
       <CSSTransition in={this.state.visible} timeout={300} classNames="slide">

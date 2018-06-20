@@ -59,7 +59,7 @@ export default class PersonList extends Component {
     const p = this.state.list[index];
 
     return (
-      <div key={key} style={style} className="row">
+      <div key={key} style={style} className="row" onClick={this.onClick.bind(this)}>
         <span className="name">{p.name}</span>
         <span className="date">{p.date}</span>
         <span className="gender">
@@ -75,6 +75,10 @@ export default class PersonList extends Component {
     });
 
     this.setState({list: filtered});
+  }
+
+  onClick(e) {
+    this._persondetails.show();
   }
 
   render() {
@@ -96,13 +100,13 @@ export default class PersonList extends Component {
                   height={height}
                   rowCount={this.state.list.length}
                   rowHeight={40}
-                  rowRenderer={this.rowRenderer.bind(this)}/>
+                  rowRenderer={this.rowRenderer.bind(this)} />
               )}
             </AutoSizer>
           </div>
         </div>
 
-        <PersonDetails />
+        <PersonDetails ref={c => this._persondetails = c} />
       </div>
     )
   }
