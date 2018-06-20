@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Map, TileLayer, LayerGroup, CircleMarker, Popup } from 'react-leaflet';
 import Control from 'react-leaflet-control';
+import axios from 'axios';
 
 import Modal from './components/Modal.jsx';
 import MapControls from './MapControls/MapControls.jsx';
@@ -21,6 +22,13 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = { markers: markers };
+  }
+
+  componentDidMount() {
+    axios.get('public/data/places.json')
+      .then(res => {
+        this.setState({markers: res.data});
+      })
   }
 
   openAppInfo() {
@@ -70,7 +78,7 @@ export default class App extends Component {
           onZoomOut={this.zoomOut.bind(this)} />
 
         <Modal className="appinfo" ref={c => this._appinfo = c}>
-          
+
         </Modal>
 
         <Modal className="locationdetails" />
