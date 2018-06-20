@@ -1,9 +1,9 @@
 @import '../globals';
 
 .sidebar .personlist {
-  flex:1;
   display:flex;
   flex-direction:column;
+  height:100%;
 
   .header {
     height:50px;
@@ -14,7 +14,7 @@
 
     span.gender {
       padding-right:14px;
-      width:64px !important; 
+      width:64px !important;
     }
 
   }

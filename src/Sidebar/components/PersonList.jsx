@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { AutoSizer, List } from 'react-virtualized';
 
+import PersonDetails from './PersonDetails.jsx';
+
 const list = [
   { name: 'John',    date:1976, gender:'M' },
   { name: 'Jane',    date:1977, gender:'F' },
@@ -71,32 +73,36 @@ export default class PersonList extends Component {
     const filtered = list.filter(person => {
       return person.name.toLowerCase().startsWith(query.toLowerCase());
     });
-    
+
     this.setState({list: filtered});
   }
 
   render() {
     return (
-      <div className="personlist">
-        <div className="header">
-          <span className="name">Name</span>
-          <span className="date">Date</span>
-          <span className="gender">Gender</span>
+      <div className="body">
+        <div className="personlist">
+          <div className="header">
+            <span className="name">Name</span>
+            <span className="date">Date</span>
+            <span className="gender">Gender</span>
+          </div>
+
+          <div className="container">
+            <AutoSizer>
+              {({ height, width}) => (
+                <List
+                  className="rows"
+                  width={width}
+                  height={height}
+                  rowCount={this.state.list.length}
+                  rowHeight={40}
+                  rowRenderer={this.rowRenderer.bind(this)}/>
+              )}
+            </AutoSizer>
+          </div>
         </div>
 
-        <div className="container">
-          <AutoSizer>
-            {({ height, width}) => (
-              <List
-                className="rows"
-                width={width}
-                height={height}
-                rowCount={this.state.list.length}
-                rowHeight={40}
-                rowRenderer={this.rowRenderer.bind(this)}/>
-            )}
-          </AutoSizer>
-        </div>
+        <PersonDetails />
       </div>
     )
   }

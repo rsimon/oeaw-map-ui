@@ -1,6 +1,7 @@
 @import '../globals';
 @import 'searchbox';
 @import 'personlist';
+@import 'persondetails';
 
 $sidebar-width:40%;
 
@@ -49,6 +50,11 @@ $sidebar-width:40%;
 
     * { z-index:9998; }
 
+  }
+
+  .body {
+    flex:1;
+    position:relative;
   }
 
 }
