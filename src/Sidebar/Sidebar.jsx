@@ -32,7 +32,8 @@ export default class Sidebar extends Component {
               onChange={this.onSearchChange.bind(this)} />
 
             <PersonList
-              ref={(c) => this._personlist = c} />
+              ref={(c) => this._personlist = c}
+              onSelectPerson={this.props.onSelectPerson}/>
           </div>
           <div className="tab">
             <button onClick={this.toggle.bind(this)}>&#xf002;</button>

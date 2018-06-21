@@ -59,7 +59,13 @@ export default class PersonList extends Component {
     const p = this.state.list[index];
 
     return (
-      <div key={key} style={style} className="row" onClick={this.onClick.bind(this)}>
+      <div
+        key={key}
+        data-idx={index}
+        className="row"
+        style={style}
+        onClick={this.onClick.bind(this)}>
+
         <span className="name">{p.name}</span>
         <span className="date">{p.date}</span>
         <span className="gender">
@@ -78,7 +84,11 @@ export default class PersonList extends Component {
   }
 
   onClick(e) {
-    this._persondetails.show();
+    const row = e.target.closest('.row');
+    const idx = row.dataset.idx;
+    const person = this.state.list[idx];
+    this._persondetails.show(person);
+    this.props.onSelectPerson(person);
   }
 
   render() {

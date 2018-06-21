@@ -19,13 +19,13 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { markers: [] };
+    this.state = { places: [] };
   }
 
   componentDidMount() {
     axios.get('public/data/places.json')
-      .then(res => {
-        this.setState({markers: res.data});
+      .then(result => {
+        this.setState({ places: result.data });
       })
   }
 
@@ -43,8 +43,14 @@ export default class App extends Component {
     map.zoomOut();
   }
 
-  onMarkerClick(idx) {
-    console.log(idx);
+  onSelectPlace(event) {
+    const idx = event.target.options.idx;
+    const selected = this.state.places[idx];
+    console.log('selected place', selected);
+  }
+
+  onSelectPerson(person) {
+    console.log('selected person', person);
   }
 
   render() {
@@ -62,27 +68,29 @@ export default class App extends Component {
             url={tiles} />
 
           <LayerGroup>
-            {this.state.markers.map((position, idx) =>
+            {this.state.places.map((place, idx) =>
               <CircleMarker
                 key={`marker-${idx}`}
-                center={position}
+                idx={idx}
+                center={place.location}
                 radius={5}
                 color='#a64a40'
                 opacity={1}
                 fillColor='#e75444'
                 fillOpacity={1}
                 weight={1.5}
-                onClick={e => this.onMarkerClick.bind(this)(idx)}>
-                
+                onClick={this.onSelectPlace.bind(this)}>
+
                 <Popup>
-                  <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+                  <span>{place.description}</span>
                 </Popup>
               </CircleMarker>
             )}
           </LayerGroup>
         </Map>
 
-        <Sidebar></Sidebar>
+        <Sidebar
+          onSelectPerson={this.onSelectPerson.bind(this)} />
 
         <MapControls
           onOpenAppInfo={this.openAppInfo.bind(this)}
