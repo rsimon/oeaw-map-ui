@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Map, TileLayer, LayerGroup, CircleMarker, Popup } from 'react-leaflet';
+import { Map, TileLayer, LayerGroup } from 'react-leaflet';
 import Control from 'react-leaflet-control';
 import axios from 'axios';
 
 import Modal from './components/Modal.jsx';
 import MapControls from './MapControls/MapControls.jsx';
+import SelectableMarker from './MapControls/SelectableMarker.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
 
 import '../public/style/app.scss';
@@ -51,6 +52,13 @@ export default class App extends Component {
 
   onSelectPerson(person) {
     console.log('selected person', person);
+
+    // DUMMY - normally, a person will carry links to places, which we want to highlight
+    // on the map. Since we don't have live data yet, and just want to get the plumbing in
+    // place, we'll just highlight a place at random for now.
+
+    // TODO
+
   }
 
   render() {
@@ -69,22 +77,10 @@ export default class App extends Component {
 
           <LayerGroup>
             {this.state.places.map((place, idx) =>
-              <CircleMarker
+              <SelectableMarker
                 key={`marker-${idx}`}
                 idx={idx}
-                center={place.location}
-                radius={5}
-                color='#a64a40'
-                opacity={1}
-                fillColor='#e75444'
-                fillOpacity={1}
-                weight={1.5}
-                onClick={this.onSelectPlace.bind(this)}>
-
-                <Popup>
-                  <span>{place.description}</span>
-                </Popup>
-              </CircleMarker>
+                place={place} />
             )}
           </LayerGroup>
         </Map>
