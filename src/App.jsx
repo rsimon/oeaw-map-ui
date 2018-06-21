@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import update from 'react-addons-update';
 import { render } from 'react-dom';
 import { Map, TileLayer, LayerGroup } from 'react-leaflet';
 import Control from 'react-leaflet-control';
@@ -20,7 +21,10 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { places: [] };
+    this.state = {
+      places: [],
+      selectedPlace: undefined
+    };
   }
 
   componentDidMount() {
@@ -44,10 +48,23 @@ export default class App extends Component {
     map.zoomOut();
   }
 
+  selectPlace(idx) {
+    const updated = (this.state.selectedPlace) ?
+      update(this.state.places, {
+        [idx]: { selected: { $set: true }},
+        [this.state.selectedPlace]: { selected: { $set: false }}
+      }) : update(this.state.places, {
+        [idx]: { selected: { $set: true }}
+      });
+
+    this.setState({
+      places: updated,
+      selectedPlace: idx
+    });
+  }
+
   onSelectPlace(event) {
-    const idx = event.target.options.idx;
-    const selected = this.state.places[idx];
-    console.log('selected place', selected);
+    this.selectPlace(event.target.options.idx);
   }
 
   onSelectPerson(person) {
@@ -57,8 +74,8 @@ export default class App extends Component {
     // on the map. Since we don't have live data yet, and just want to get the plumbing in
     // place, we'll just highlight a place at random for now.
 
-    // TODO
-
+    const idx = Math.floor((Math.random() * this.state.places.length) + 1);
+    this.selectPlace(idx);
   }
 
   render() {
@@ -80,7 +97,9 @@ export default class App extends Component {
               <SelectableMarker
                 key={`marker-${idx}`}
                 idx={idx}
-                place={place} />
+                place={place}
+                selected={place.selected}
+                onClick={this.onSelectPlace.bind(this)} />
             )}
           </LayerGroup>
         </Map>
