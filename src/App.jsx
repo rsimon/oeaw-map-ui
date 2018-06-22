@@ -1,31 +1,19 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
 import { render } from 'react-dom';
-import { Map, TileLayer, LayerGroup } from 'react-leaflet';
-import Control from 'react-leaflet-control';
 import axios from 'axios';
 
-import Modal from './components/Modal.jsx';
-import MapControls from './MapControls/MapControls.jsx';
-import SelectableMarker from './MapControls/SelectableMarker.jsx';
+import Modal from './common/Modal.jsx';
+import Map from './Map/Map.jsx';
 import Sidebar from './Sidebar/Sidebar.jsx';
 
 import '../public/style/app.scss';
-
-const tiles = 'https://dare.ht.lu.se/tiles/imperium/{z}/{x}/{y}.png';
-const attribution = 'Map tiles: <a href="http://dare.ht.lu.se/">DARE 2018</a>';
-const mapCenter = [48.1638, 16.9528];
-const zoomLevel = 8;
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      places: [],
-      selectedPlace: undefined
-    };
-    this.markers = [];
+    this.state = {places:[]}
   }
 
   componentDidMount() {
@@ -39,33 +27,6 @@ export default class App extends Component {
     this._appinfo.show();
   }
 
-  zoomIn() {
-    const map = this.leafletMap.leafletElement;
-    map.zoomIn();
-  }
-
-  zoomOut() {
-    const map = this.leafletMap.leafletElement;
-    map.zoomOut();
-  }
-
-  selectPlace(idx) {
-    /*
-    const updated = (this.state.selectedPlace) ?
-      update(this.state.places, {
-        [idx]: { selected: { $set: true }},
-        [this.state.selectedPlace]: { selected: { $set: false }}
-      }) : update(this.state.places, {
-        [idx]: { selected: { $set: true }}
-      });
-
-    this.setState({
-      places: updated,
-      selectedPlace: idx
-    });
-    */
-  }
-
   onSelectPlace(event) {
     this.selectPlace(event.target.options.idx);
   }
@@ -77,50 +38,22 @@ export default class App extends Component {
     // on the map. Since we don't have live data yet, and just want to get the plumbing in
     // place, we'll just highlight a place at random for now.
 
-    const idx = Math.floor((Math.random() * this.state.places.length) + 1);
+    // const idx = Math.floor((Math.random() * this.state.places.length) + 1);
     // this.selectPlace(idx);
-    const marker = this.markers[idx];
-    marker.select();
+    // const marker = this.markers[idx];
+    // marker.select();
   }
 
   render() {
     return (
       <div className='container'>
         <Map
-          className='map'
-          zoomControl={false}
-          ref={m => {this.leafletMap = m;}}
-          center={mapCenter}
-          zoom={zoomLevel}>
+          places={this.state.places}
+          onOpenAppInfo={this.openAppInfo.bind(this)} />
 
-          <TileLayer
-            attribution={attribution}
-            url={tiles} />
+        <Sidebar onSelectPerson={this.onSelectPerson.bind(this)} />
 
-          <LayerGroup>
-            {this.state.places.map((place, idx) =>
-              <SelectableMarker
-                key={`marker-${idx}`}
-                ref={m => {this.markers[idx] = m;}}
-                idx={idx}
-                place={place}
-                selected={place.selected}
-                onClick={this.onSelectPlace.bind(this)} />
-            )}
-          </LayerGroup>
-        </Map>
-
-        <Sidebar
-          onSelectPerson={this.onSelectPerson.bind(this)} />
-
-        <MapControls
-          onOpenAppInfo={this.openAppInfo.bind(this)}
-          onZoomIn={this.zoomIn.bind(this)}
-          onZoomOut={this.zoomOut.bind(this)} />
-
-        <Modal className="appinfo" ref={c => this._appinfo = c}>
-
-        </Modal>
+        <Modal className="appinfo" ref={c => this._appinfo = c} />
 
         <Modal className="locationdetails" />
       </div>

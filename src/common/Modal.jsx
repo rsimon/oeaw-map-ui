@@ -33,7 +33,6 @@ export default class Modal extends Component {
             {this.props.children}
           </div>
         </div>
-
       </div>
     )
   }
