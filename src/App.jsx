@@ -25,6 +25,7 @@ export default class App extends Component {
       places: [],
       selectedPlace: undefined
     };
+    this.markers = [];
   }
 
   componentDidMount() {
@@ -49,6 +50,7 @@ export default class App extends Component {
   }
 
   selectPlace(idx) {
+    /*
     const updated = (this.state.selectedPlace) ?
       update(this.state.places, {
         [idx]: { selected: { $set: true }},
@@ -61,6 +63,7 @@ export default class App extends Component {
       places: updated,
       selectedPlace: idx
     });
+    */
   }
 
   onSelectPlace(event) {
@@ -75,7 +78,9 @@ export default class App extends Component {
     // place, we'll just highlight a place at random for now.
 
     const idx = Math.floor((Math.random() * this.state.places.length) + 1);
-    this.selectPlace(idx);
+    // this.selectPlace(idx);
+    const marker = this.markers[idx];
+    marker.select();
   }
 
   render() {
@@ -96,6 +101,7 @@ export default class App extends Component {
             {this.state.places.map((place, idx) =>
               <SelectableMarker
                 key={`marker-${idx}`}
+                ref={m => {this.markers[idx] = m;}}
                 idx={idx}
                 place={place}
                 selected={place.selected}
