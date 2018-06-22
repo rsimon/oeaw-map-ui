@@ -10,6 +10,7 @@ export default class SelectableMarker extends Component {
   }
 
   select() {
+    this.props.beforeSelect(this);
     this.setState({selected: true});
   }
 

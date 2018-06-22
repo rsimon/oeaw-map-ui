@@ -11,10 +11,6 @@ const zoomLevel = 8;
 
 export default class LeafletMap extends Component {
 
-  onSelectMarker(event) {
-
-  }
-
   zoomIn() {
     const map = this._leafletMap.leafletElement;
     map.zoomIn();
@@ -25,13 +21,19 @@ export default class LeafletMap extends Component {
     map.zoomOut();
   }
 
+  selectByIndex(indices) {
+    const map = this._leafletMap.leafletElement;
+    map.closePopup();
+    this._markers.selectByIndex(indices);
+  }
+
   render() {
     return (
       <div>
         <Map
           className='map'
           zoomControl={false}
-          ref={m => {this._leafletMap = m;}}
+          ref={c => {this._leafletMap = c;}}
           center={mapCenter}
           zoom={zoomLevel}>
 
@@ -40,14 +42,15 @@ export default class LeafletMap extends Component {
             url={tiles} />
 
           <MarkerLayer
+            ref={c => this._markers = c}
             places={this.props.places}
-            onSelectMarker={this.onSelectMarker.bind(this)}/>
+            onSelectPlace={this.props.onSelectPlace.bind(this)} />
         </Map>
 
         <MapControls
-          onOpenAppInfo={this.props.onOpenAppInfo}
           onZoomIn={this.zoomIn.bind(this)}
-          onZoomOut={this.zoomOut.bind(this)} />
+          onZoomOut={this.zoomOut.bind(this)}
+          onOpenAppInfo={this.props.onOpenAppInfo} />
       </div>
     )
   }

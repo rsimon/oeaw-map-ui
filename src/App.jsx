@@ -13,7 +13,11 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {places:[]}
+
+    this.state = {
+      places: [],
+      showAppInfo: false
+    }
   }
 
   componentDidMount() {
@@ -24,11 +28,11 @@ export default class App extends Component {
   }
 
   openAppInfo() {
-    this._appinfo.show();
+    this.setState({showAppInfo: true});
   }
 
-  onSelectPlace(event) {
-    this.selectPlace(event.target.options.idx);
+  closeAppInfo() {
+    this.setState({showAppInfo: false});
   }
 
   onSelectPerson(person) {
@@ -38,22 +42,30 @@ export default class App extends Component {
     // on the map. Since we don't have live data yet, and just want to get the plumbing in
     // place, we'll just highlight a place at random for now.
 
-    // const idx = Math.floor((Math.random() * this.state.places.length) + 1);
-    // this.selectPlace(idx);
-    // const marker = this.markers[idx];
-    // marker.select();
+    const idx = Math.floor((Math.random() * 300) + 1);
+    this._map.selectByIndex([ idx ]);
+  }
+
+  onSelectPlace(place) {
+
   }
 
   render() {
     return (
       <div className='container'>
         <Map
+          ref={c => this._map = c}
           places={this.state.places}
-          onOpenAppInfo={this.openAppInfo.bind(this)} />
+          onOpenAppInfo={this.openAppInfo.bind(this)}
+          onSelectPlace={this.onSelectPlace.bind(this)} />
 
-        <Sidebar onSelectPerson={this.onSelectPerson.bind(this)} />
+        <Sidebar
+          onSelectPerson={this.onSelectPerson.bind(this)} />
 
-        <Modal className="appinfo" ref={c => this._appinfo = c} />
+        <Modal
+          className="appinfo"
+          visible={this.state.showAppInfo}
+          onClose={this.closeAppInfo.bind(this)} />
 
         <Modal className="locationdetails" />
       </div>
