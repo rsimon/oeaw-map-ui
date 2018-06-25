@@ -11,7 +11,7 @@ export default class Modal extends Component {
   render() {
     return (
       <div
-        className={this.props.visible ? `clicktrap ${this.props.className}` : `clicktrap ${this.props.className} hidden`}
+        className={`clicktrap ${this.props.className}`}
         onClick={this.onClick.bind(this)}>
 
         <div className="modal">

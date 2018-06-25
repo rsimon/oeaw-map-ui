@@ -16,7 +16,8 @@ export default class App extends Component {
 
     this.state = {
       places: [],
-      showAppInfo: false
+      showAppInfo: false,
+      showLocationInfo: false
     }
   }
 
@@ -62,12 +63,15 @@ export default class App extends Component {
         <Sidebar
           onSelectPerson={this.onSelectPerson.bind(this)} />
 
-        <Modal
-          className="appinfo"
-          visible={this.state.showAppInfo}
-          onClose={this.closeAppInfo.bind(this)} />
+        {this.state.showAppInfo &&
+          <Modal
+            className="appinfo"
+            onClose={this.closeAppInfo.bind(this)} />
+        }
 
-        <Modal className="locationdetails" />
+        {this.state.showLocationInfo &&
+          <Modal className="locationdetails" />
+        }
       </div>
     );
   }
