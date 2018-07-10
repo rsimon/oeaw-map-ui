@@ -66,11 +66,20 @@ export default class App extends Component {
         {this.state.showAppInfo &&
           <Modal
             className="appinfo"
-            onClose={this.closeAppInfo.bind(this)} />
+            onClose={this.closeAppInfo.bind(this)}>
+            <ul>
+              <li>Project title</li>
+              <li>Short description</li>
+              <li>Instructions - how to use icons and search</li>
+              <li>Contact info/imprint</li>
+              <li>Logos: ÖAW, Project, (AIT? 'software development by...')</li>
+            </ul>
+          </Modal>
         }
 
         {this.state.showLocationInfo &&
-          <Modal className="locationdetails" />
+          <Modal className="locationdetails">
+          </Modal>
         }
       </div>
     );

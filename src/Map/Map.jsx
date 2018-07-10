@@ -4,8 +4,8 @@ import { Map, TileLayer } from 'react-leaflet';
 import MapControls from './Controls/MapControls.jsx';
 import MarkerLayer from './MarkerLayer/MarkerLayer.jsx';
 
-const tiles = 'https://dare.ht.lu.se/tiles/imperium/{z}/{x}/{y}.png';
-const attribution = 'Map tiles: <a href="http://dare.ht.lu.se/">DARE 2018</a>';
+const tiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 const mapCenter = [ 48.1638, 16.9528 ];
 const zoomLevel = 8;
 
