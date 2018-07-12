@@ -4,15 +4,49 @@
   left:-100%;
   width:100%;
   height:100%;
-  background-color:rgba(255,255,255,0.8);
+  background-color:#fff;
   box-sizing:border-box;
+  overflow-y:scroll;
+  line-height:180%;
 
-  .exit {
+  .close {
     position:absolute;
     top:5px;
     right:10px;
     font-family:FontAwesome;
     background-color:transparent;
+    color:#fff;
+  }
+
+  .header {
+    background-color:$oeaw-blue;
+    padding:40px 30px;
+
+    h1, h2 {
+      padding:2px 0;
+      margin:0;
+      font-weight:normal;
+      font-family:serif;
+    }
+
+    h1 {
+      font-size:23px;
+      color:#fff;
+    }
+
+    h2 {
+      font-size:20px;
+      color:rgba(255, 255, 255, 0.8);
+    }
+
+    .alias, .date {
+      display:block;
+    }
+
+  }
+
+  .body {
+    padding:30px;
   }
 
 }
