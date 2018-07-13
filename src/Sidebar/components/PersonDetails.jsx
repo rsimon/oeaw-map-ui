@@ -35,13 +35,15 @@ export default class PersonDetails extends Component {
             <div className="portrait">
               <div className="gender" data-gender="m"></div>
             </div>
-            <h1 className="name">
-              Aleksandar Čokor (22.07.1815 Baja - 1884 Vienna)
-            </h1>
-            <h2>
-              <span className="alias">Alexander Csokor, Александар Чокор</span>
-              <span className="date">before 1847-1884</span>
-            </h2>
+            <div className="info">
+              <h1 className="name">
+                Aleksandar Čokor (22.07.1815 Baja - 1884 Vienna)
+              </h1>
+              <h2>
+                <span className="alias">Alexander Csokor, Александар Чокор</span>
+                <span className="date">before 1847-1884</span>
+              </h2>
+            </div>
           </div>
           <div className="body">
             <p className="description">

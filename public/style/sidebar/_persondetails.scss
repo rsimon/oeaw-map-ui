@@ -21,6 +21,21 @@
   .header {
     background-color:$oeaw-blue;
     padding:40px 30px;
+    position:relative;
+    min-height:126px;
+
+    .portrait {
+      position:absolute;
+      width:120px;
+      height:120px;
+      border:3px solid #fff;
+      @include rounded-corners(50%);
+      background-color:rgba(255,255,255,0.1);
+    }
+
+    .info {
+      padding-left:150px;
+    }
 
     h1, h2 {
       padding:2px 0;
