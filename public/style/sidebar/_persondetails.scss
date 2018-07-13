@@ -33,6 +33,20 @@
       background-color:rgba(255,255,255,0.1);
     }
 
+    .portrait::before {
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      content:'\f007';
+      font-family:FontAwesome;
+      color:#fff;
+      text-align:center;
+      line-height:120px;
+      font-size:65px;
+    }
+
     .info {
       padding-left:150px;
     }
