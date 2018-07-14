@@ -75,7 +75,11 @@ export default class App extends Component {
                 A short project description...
               </p>
               <p cassName="using-the-interface">
-                Search, icons
+                <h2>Using the Interface</h2>
+                <ul>
+                  <li>Map controls</li>
+                  <li>Search</li>
+                </ul>
               </p>
             </div>
             <div className="footer">
