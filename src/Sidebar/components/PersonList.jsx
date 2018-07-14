@@ -10,7 +10,7 @@ const people = [{
   date: 'before 1847-1884',
   description: 'Aleksandar Čokor came from Baja to Vienna where he worked at the North train station (Nordbahnhof) as Officier. Alexandar was born on 22 July 1815 in Baja, and he married Anna Schindler on 24 January 1847 in St Leopold church. Alexander’s adress was Leopoldstadt 702. She was born on 22 July 1818.1 Anna died on 3 July 1856 in house Leopoldstadt 644 in the age of 38 and was burried on 5 July on St. Marx cemetery.2 Alexander´s second wife Theresia died on 12 March 1859 at the age 25 in the same house no 644. She was buried on 14 March on St. Marx cemetery.'
 },{
-  name: 'Јovan Čokor (04.04.1849-07.01.1911)',
+  name: 'Jovan Čokor (04.04.1849-07.01.1911)',
   alias: 'Johann Nepomuk Csokor, Јован Чокор, Istvan Csokor',
   gender: 'M',
   date: '1849-1911',
@@ -58,14 +58,16 @@ export default class PersonList extends Component {
       return person.name.toLowerCase().startsWith(query.toLowerCase());
     });
 
-    this.setState({ people: filtered });
+    this.setState({
+      people: filtered,
+      selected: null
+    });
   }
 
   selectPerson(e) {
     const row = e.target.closest('.row');
     const idx = row.dataset.idx;
     const person = this.state.people[idx];
-    // this._persondetails.show(person);
     this.setState({ selected: person });
     this.props.onSelectPerson(person);
   }
