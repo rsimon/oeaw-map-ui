@@ -67,13 +67,28 @@ export default class App extends Component {
           <Modal
             className="appinfo"
             onClose={this.closeAppInfo.bind(this)}>
-            <ul>
-              <li>Project title</li>
-              <li>Short description</li>
-              <li>Instructions - how to use icons and search</li>
-              <li>Contact info/imprint</li>
-              <li>Logos: ÖAW, Project, (AIT? 'software development by...')</li>
-            </ul>
+            <div className="header">
+              <h1>Geschichte der SerbInnen in Wien (1741-1918)</h1>
+            </div>
+            <div className="content">
+              <p className="project-abstract">
+                A short project description...
+              </p>
+              <p cassName="using-the-interface">
+                Search, icons
+              </p>
+            </div>
+            <div className="footer">
+              <img className="logo oeaw" src="/public/images/logo-oeaw.png" />
+              <div className="imprint">
+                <span>Österreichische Akademie der Wissenschaften</span>
+                <span>Dr. Ignaz Seipel-Platz 2</span>
+                <span>1010 Wien</span>
+              </div>
+              {/* <ul>
+                <li>Logos: Project, (AIT? 'software development by...')</li>
+              </ul> */}
+            </div>
           </Modal>
         }
 
