@@ -30,21 +30,41 @@
       height:120px;
       border:3px solid #fff;
       @include rounded-corners(50%);
-      background-color:rgba(255,255,255,0.1);
+      background-color:#146fae;
     }
 
-    .portrait::before {
+    .portrait::before, .gender::before {
       position:absolute;
       top:0;
       right:0;
       bottom:0;
       left:0;
-      content:'\f007';
       font-family:FontAwesome;
       color:#fff;
       text-align:center;
+    }
+
+    .portrait:before {
+      content:'\f007';
       line-height:120px;
       font-size:65px;
+    }
+
+    .gender {
+      position:absolute;
+      left:-5px;
+      bottom:-5px;
+      width:34px;
+      height:34px;
+      border:3px solid #fff;
+      @include rounded-corners(50%);
+      background-color:#146fae;
+    }
+
+    .gender::before {
+      content:'\f222';
+      font-size:22px;
+      line-height:34px;
     }
 
     .info {
