@@ -32,6 +32,7 @@
     background-color:$oeaw-blue;
     color:#fff;
     line-height:140%;
+    box-sizing:border-box;
 
     .imprint {
       display:inline-block;
@@ -39,12 +40,32 @@
       span { display:block; }
     }
 
-    .logo.oeaw {
-      background-color:#fff;
+    .logo {
+      @include rounded-corners(1px);
       display:inline;
+    }
+
+    .logo.oeaw {
       width:81px;
       height:70px;
-      @include rounded-corners(3px);
+    }
+
+    .developed-by {
+      position:absolute;
+      right:20px;
+      bottom:20px;
+      text-align:right;
+
+      span {
+        display:block;
+        padding:0 3px 5px 0; 
+      }
+
+    }
+
+    .logo.ait {
+      width:185px;
+      height:45px;
     }
 
   }
