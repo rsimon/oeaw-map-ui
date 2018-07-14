@@ -62,9 +62,16 @@
     }
 
     .gender::before {
-      content:'\f222';
       font-size:22px;
       line-height:34px;
+    }
+
+    .gender[data-gender='M']::before {
+      content:'\f222';
+    }
+
+    .gender[data-gender='F']::before {
+      content:'\f221';
     }
 
     .info {
@@ -96,6 +103,12 @@
 
   .body {
     padding:30px;
+
+    .description {
+      white-space:pre-wrap;
+      word-wrap:break-word;
+    }
+
   }
 
 }
@@ -116,4 +129,23 @@
 
 .persondetails.slide-exit-done {
   left:-100%;
+}
+
+.persondetails::-webkit-scrollbar {
+  width:15px;
+}
+
+.persondetails::-webkit-scrollbar-track {
+  background:#f1f1f1;
+}
+
+.persondetails::-webkit-scrollbar-thumb {
+  background-color:#c1c1c1;
+  border:3px solid transparent;
+  border-radius:9px;
+  background-clip:content-box;
+}
+
+.persondetails::-webkit-scrollbar-thumb:hover {
+  background-color:#b2b2b2;
 }

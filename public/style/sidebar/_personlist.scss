@@ -40,12 +40,16 @@
       display:table-cell;
     }
 
+    span.name {
+      width:65%
+    }
+
     span.date {
-      width:100px;
+      width:25%;
     }
 
     span.gender {
-      width:50px;
+      width:10%;
       text-align:center;
     }
 
@@ -56,6 +60,7 @@
     box-sizing:border-box;
     padding:10px 20px 10px 10px;
     border-bottom:1px solid $lightgrey-border;
+    white-space:nowrap;
 
     .gender {
       font-family:FontAwesome;
