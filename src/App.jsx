@@ -84,7 +84,7 @@ export default class App extends Component {
             </div>
             <div className="footer">
               <a href="http://www.oeaw.ac.at" target="_blank">
-                <img className="logo oeaw" src="/public/images/logo-oeaw.png" />
+                <img className="logo oeaw" src="public/images/logo-oeaw.png" />
               </a>
               <div className="imprint">
                 <span>Österreichische Akademie der Wissenschaften</span>
@@ -95,7 +95,7 @@ export default class App extends Component {
               <div className="developed-by">
                 <span>Development by</span>
                 <a href="http://www.ait.ac.at/" target="_blank">
-                  <img className="logo ait" src="/public/images/logo-ait.png" />
+                  <img className="logo ait" src="public/images/logo-ait.png" />
                 </a>
               </div>
             </div>
