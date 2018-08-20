@@ -30,8 +30,14 @@ def load_csv()
   f = File.read(INPUT_CSV)
   CSV.parse(f, :headers => true, :col_sep => ";").map do |row|
     as_hash = row.to_hash
-    as_hash['geom'] = JSON.parse(as_hash['polygon_point'])
+
+    geom = JSON.parse(as_hash['polygon_point'])
     as_hash.delete('polygon_point')
+
+    # coords are in the wrong order in the source data...
+    geom['coordinates'] = geom['coordinates'].reverse
+
+    as_hash['geom'] = geom
     as_hash
   end
 end

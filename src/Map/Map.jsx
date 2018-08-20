@@ -6,8 +6,8 @@ import MarkerLayer from './MarkerLayer/MarkerLayer.jsx';
 
 const tiles = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-const mapCenter = [ 48.1638, 16.9528 ];
-const zoomLevel = 8;
+const mapCenter = [ 48.184, 16.294 ];
+const zoomLevel = 12;
 
 export default class LeafletMap extends Component {
 
