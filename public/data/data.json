@@ -1,0 +1,78 @@
+{
+  "Obrenović Miloš Prince (1780-1860)": [
+    {
+      "place": "Location of House of Prince Miloš Obrenović in Hietzing",
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          16.2943091243435,
+          48.1841239341827
+        ]
+      }
+    },
+    {
+      "place": "Location of House of Prince Miloš Obrenović in Annagasse ",
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          16.3722187737022,
+          48.2041332660383
+        ]
+      }
+    },
+    {
+      "place": "Location of House of Prince Miloš Obrenović in Landstraßer Hauptstraße ",
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          16.3935072894015,
+          48.1996854366772
+        ]
+      }
+    },
+    {
+      "place": "Location of House of Prince Miloš Obrenović in Untere Donaustrasse",
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          16.3836219906636,
+          48.2128114990699
+        ]
+      }
+    }
+  ],
+  "Obrenović Milan I King (1854-1901)": [
+    {
+      "place": "Location of King Milan Apartment ",
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          16.3756598399362,
+          48.2034986516222
+        ]
+      }
+    },
+    {
+      "place": "Location of King Milan Apartment ",
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          16.3756598399362,
+          48.2034986516222
+        ]
+      }
+    }
+  ],
+  "Jović Spiridon (1801-1836)": [
+    {
+      "place": "Location of Spiridon Jović Apartment",
+      "geom": {
+        "type": "Point",
+        "coordinates": [
+          16.3734483526886,
+          48.2066376815494
+        ]
+      }
+    }
+  ]
+}
