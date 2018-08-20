@@ -41,8 +41,8 @@ export default class PersonList extends Component {
   }
 
   filter(query) {
-    const filtered = people.filter(person => {
-      return person.name.toLowerCase().startsWith(query.toLowerCase());
+    const filtered = this.props.people.filter(p => {
+      return p.person.toLowerCase().startsWith(query.toLowerCase());
     });
 
     this.setState({
