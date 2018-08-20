@@ -6,23 +6,23 @@ export default class SelectableMarker extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {selected: false};
+    this.state = { selected: false };
   }
 
   select() {
     this.props.beforeSelect(this);
-    this.setState({selected: true});
+    this.setState({ selected: true });
   }
 
   deselect() {
-    this.setState({selected: false});
+    this.setState({ selected: false });
   }
 
   render() {
     return (
       <CircleMarker
         idx={this.props.idx}
-        center={this.props.place.location}
+        center={this.props.place.geom.coordinates}
         radius={this.state.selected ? 10 : 5}
         color={this.state.selected ? '#a64a40' : '#4a4a4a'}
         opacity={1}
@@ -32,7 +32,7 @@ export default class SelectableMarker extends Component {
         onClick={this.select.bind(this)}>
 
         <Popup onClose={this.deselect.bind(this)}>
-          <span>{this.props.place.description}</span>
+          <span>{this.props.place.place}</span>
         </Popup>
       </CircleMarker>
     )

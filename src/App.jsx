@@ -24,8 +24,16 @@ export default class App extends Component {
   componentDidMount() {
     axios.get('public/data/data.json')
       .then(result => {
-        console.log(result.data);
-        // this.setState({ places: result.data });
+        const people = result.data.map(record => {
+          return { person: record.person };
+        });
+
+        // An elaborate flatMap replacement... (sigh)
+        const places = [].concat.apply([], result.data.map(record => {
+          return record.places;
+        }));
+
+        this.setState({ places: places });
       })
   }
 
