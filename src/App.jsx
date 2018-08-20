@@ -15,6 +15,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
+      people: [],
       places: [],
       showAppInfo: false,
       showLocationInfo: false
@@ -33,27 +34,23 @@ export default class App extends Component {
           return record.places;
         }));
 
-        this.setState({ places: places });
+        this.setState({
+          people: people,
+          places: places
+        });
       })
   }
 
   openAppInfo() {
-    this.setState({showAppInfo: true});
+    this.setState({ showAppInfo: true });
   }
 
   closeAppInfo() {
-    this.setState({showAppInfo: false});
+    this.setState({ showAppInfo: false });
   }
 
-  onSelectPerson(person) {
-    console.log('selected person', person);
-
-    // DUMMY - normally, a person will carry links to places, which we want to highlight
-    // on the map. Since we don't have live data yet, and just want to get the plumbing in
-    // place, we'll just highlight a place at random for now.
-
-    const idx = Math.floor((Math.random() * 300) + 1);
-    this._map.selectByIndex([ idx ]);
+  onSelectPerson(p) {
+    this._map.selectByPerson(p.person);
   }
 
   onSelectPlace(place) {
@@ -70,6 +67,7 @@ export default class App extends Component {
           onSelectPlace={this.onSelectPlace.bind(this)} />
 
         <Sidebar
+          people={this.state.people}
           onSelectPerson={this.onSelectPerson.bind(this)} />
 
         {this.state.showAppInfo &&

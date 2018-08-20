@@ -12,12 +12,12 @@ export default class MarkerLayer extends Component {
   }
 
   deselectAll() {
+    this._markers.forEach(m => m.deselect());
     this._selection.forEach(idx => this._markers[idx].deselect());
     this._selection = [];
   }
 
   beforeSelectMarker(marker) {
-    this.deselectAll();
     this._selection = [ this._markers.indexOf(marker) ];
   }
 
@@ -25,6 +25,15 @@ export default class MarkerLayer extends Component {
     this.deselectAll();
     indices.forEach(idx => this._markers[idx].select());
     this._selection = indices;
+  }
+
+  selectByPerson(name) {
+    this.deselectAll();
+    this._markers.forEach(m => {
+      const person = m.props.place.person;
+      if (person == name)
+        m.select();
+    });
   }
 
   render() {

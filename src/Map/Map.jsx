@@ -27,6 +27,12 @@ export default class LeafletMap extends Component {
     this._markers.selectByIndex(indices);
   }
 
+  selectByPerson(name) {
+    const map = this._leafletMap.leafletElement;
+    map.closePopup();
+    this._markers.selectByPerson(name);
+  }
+
   render() {
     return (
       <div>

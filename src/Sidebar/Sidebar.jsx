@@ -8,7 +8,7 @@ export default class Sidebar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {visible: false};
+    this.state = { visible: false };
   }
 
   toggle() {
@@ -32,6 +32,7 @@ export default class Sidebar extends Component {
               onChange={this.onSearchChange.bind(this)} />
 
             <PersonList
+              people={this.props.people}
               ref={(c) => this._personlist = c}
               onSelectPerson={this.props.onSelectPerson}/>
           </div>
