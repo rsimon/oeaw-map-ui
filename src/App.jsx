@@ -22,9 +22,10 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('public/data/places.json')
+    axios.get('public/data/data.json')
       .then(result => {
-        this.setState({ places: result.data });
+        console.log(result.data);
+        // this.setState({ places: result.data });
       })
   }
 

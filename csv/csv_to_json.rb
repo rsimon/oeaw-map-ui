@@ -10,27 +10,16 @@ Super-simple domain model class
 class Model
   def initialize(data)
     grouped = data.group_by { |record| record['person'] }
-    grouped.each do |key, val|
-      val.each { |record| record.delete('person') }
+    as_array = grouped.map do |key, val|
+      { 'person' => key, 'places' => val }
     end
-    @model = grouped
+    @model = as_array
   end
 
   def write_to_file(filename)
     f = File.open(filename, 'w')
     f.write(JSON.pretty_generate(@model))
     f.close
-  end
-
-  '''
-  Just for info, testing and future use
-  '''
-  def list_people
-    @model.map { |name, places| name }
-  end
-
-  def list_places_for(person)
-    @model[person]
   end
 end
 
