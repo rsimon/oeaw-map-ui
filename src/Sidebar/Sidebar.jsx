@@ -16,7 +16,7 @@ export default class Sidebar extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.people)
+    if (nextProps.people != this.props.people)
       this.setState({ people: nextProps.people });
   }
 
@@ -31,11 +31,8 @@ export default class Sidebar extends Component {
       return p.name.toLowerCase().startsWith(query.toLowerCase());
     });
 
-    this.setState({
-      people: filtered
-    });
-
     this.props.onSelectPerson(null);
+    this.setState({ people: filtered });
   }
 
   render() {

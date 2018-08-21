@@ -7,8 +7,9 @@ export default class SearchBox extends Component {
     this.state = { value: '' };
   }
 
-  focus() {
-    this._input.focus();
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.visible)
+      this._input.focus();
   }
 
   onChange(event) {
