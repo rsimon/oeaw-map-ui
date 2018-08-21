@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import update from 'react-addons-update';
 import { render } from 'react-dom';
 import axios from 'axios';
 
@@ -15,18 +14,22 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      people: [],
-      places: [],
-      showAppInfo: false,
-      showLocationInfo: false
+      people : [], // All people in the dataset
+      places : [], // All places in the dataset
+
+      selectedPerson: null,  // Currently selected person, if any
+      placeDetailsFor: null, // Details model for a selected place, if any
+
+      isAppInfoVisible: false // UI state: app info modal visible?
     }
   }
 
   componentDidMount() {
     axios.get('public/data/data.json')
       .then(result => {
+        // Pull out separate lists for people and places
         const people = result.data.map(record => {
-          return { person: record.person };
+          return { name: record.name };
         });
 
         // An elaborate flatMap replacement... (sigh)
@@ -34,43 +37,47 @@ export default class App extends Component {
           return record.places;
         }));
 
+        // Initial state
         this.setState({
           people: people,
-          places: places
+          places: places,
+          selectedPerson: null,
+          placeDetailsFor: null
         });
       })
   }
 
   openAppInfo() {
-    this.setState({ showAppInfo: true });
+    this.setState({ isAppInfoVisible: true });
   }
 
   closeAppInfo() {
-    this.setState({ showAppInfo: false });
+    this.setState({ isAppInfoVisible: false });
   }
 
-  onSelectPerson(p) {
-    this._map.selectByPerson(p.person);
+  onSelectPerson(person) {
+    this.setState({ selectedPerson: person });
   }
 
   onSelectPlace(place) {
-
+    // TODO
   }
 
   render() {
     return (
       <div className='container'>
         <Map
-          ref={c => this._map = c}
           places={this.state.places}
-          onOpenAppInfo={this.openAppInfo.bind(this)}
-          onSelectPlace={this.onSelectPlace.bind(this)} />
+          selectedPerson={this.state.selectedPerson}
+          onSelectPlace={this.onSelectPlace.bind(this)}
+          onOpenAppInfo={this.openAppInfo.bind(this)} />
 
         <Sidebar
           people={this.state.people}
+          selectedPerson={this.state.selectedPerson}
           onSelectPerson={this.onSelectPerson.bind(this)} />
 
-        {this.state.showAppInfo &&
+        {this.state.isAppInfoVisible &&
           <Modal
             className="appinfo"
             onClose={this.closeAppInfo.bind(this)}>
@@ -81,13 +88,11 @@ export default class App extends Component {
               <p className="project-abstract">
                 A short project description...
               </p>
-              <p cassName="using-the-interface">
-                <h2>Using the Interface</h2>
-                <ul>
-                  <li>Map controls</li>
-                  <li>Search</li>
-                </ul>
-              </p>
+              <h2>Using the Interface</h2>
+              <ul className="using-the-interface">
+                <li>Map controls</li>
+                <li>Search</li>
+              </ul>
             </div>
             <div className="footer">
               <a href="http://www.oeaw.ac.at" target="_blank">
@@ -109,7 +114,7 @@ export default class App extends Component {
           </Modal>
         }
 
-        {this.state.showLocationInfo &&
+        {this.state.placeDetailsFor &&
           <Modal className="locationdetails">
           </Modal>
         }

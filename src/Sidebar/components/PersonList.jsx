@@ -5,19 +5,6 @@ import PersonDetails from './PersonDetails.jsx';
 
 export default class PersonList extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      people: props.people,
-      selected: null
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.people)
-      this.setState({ people: nextProps.people });
-  }
-
   rowRenderer({
     key,         // Unique key within array of rows
     index,       // Index of row within collection
@@ -25,42 +12,19 @@ export default class PersonList extends Component {
     isVisible,   // This row is visible within the List (eg it is not an overscanned row)
     style        // Style object to be applied to row (to position it)
   }) {
-    const p = this.state.people[index];
-
+    const person = this.props.people[index];
+    const isSelected = person == this.props.selected;
     return (
       <div
         key={key}
         data-idx={index}
-        className="row"
+        className={(isSelected ? "row selected" : "row")}
         style={style}
-        onClick={this.selectPerson.bind(this)}>
+        onClick={this.props.onSelectPerson.bind(this, person)}>
 
-        <span className="name">{p.person}</span>
+        <span className="name">{person.name}</span>
       </div>
     )
-  }
-
-  filter(query) {
-    const filtered = this.props.people.filter(p => {
-      return p.person.toLowerCase().startsWith(query.toLowerCase());
-    });
-
-    this.setState({
-      people: filtered,
-      selected: null
-    });
-  }
-
-  selectPerson(e) {
-    const row = e.target.closest('.row');
-    const idx = row.dataset.idx;
-    const person = this.state.people[idx];
-    this.setState({ selected: person });
-    this.props.onSelectPerson(person);
-  }
-
-  deselectPerson(e) {
-    this.setState({ selected: null });
   }
 
   render() {
@@ -80,7 +44,7 @@ export default class PersonList extends Component {
                   className="rows"
                   width={width}
                   height={height}
-                  rowCount={this.state.people.length}
+                  rowCount={this.props.people.length}
                   rowHeight={40}
                   rowRenderer={this.rowRenderer.bind(this)} />
               )}
@@ -89,8 +53,8 @@ export default class PersonList extends Component {
         </div>
 
         <PersonDetails
-          person={this.state.selected}
-          onClose={this.deselectPerson.bind(this)} />
+          person={this.props.selected}
+          onClose={this.props.onSelectPerson.bind(this, null)} />
       </div>
     )
   }

@@ -8,18 +8,34 @@ export default class Sidebar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { visible: false };
+
+    this.state = {
+      visible  : false,
+      people   : this.props.people
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.people)
+      this.setState({ people: nextProps.people });
   }
 
   toggle() {
-    if (!this.state.visible) this._searchbox.focus();
     this.setState(previous => ({
       visible: !previous.visible
     }));
   }
 
-  onSearchChange(query) {
-    this._personlist.filter(query);
+  onSearchChanged(query) {
+    const filtered = this.props.people.filter(p => {
+      return p.name.toLowerCase().startsWith(query.toLowerCase());
+    });
+
+    this.setState({
+      people: filtered
+    });
+
+    this.props.onSelectPerson(null);
   }
 
   render() {
@@ -28,12 +44,12 @@ export default class Sidebar extends Component {
         <div className="sidebar">
           <div className="content">
             <SearchBox
-              ref={c => this._searchbox = c}
-              onChange={this.onSearchChange.bind(this)} />
+              visible={this.state.visible}
+              onChange={this.onSearchChanged.bind(this)} />
 
             <PersonList
-              people={this.props.people}
-              ref={(c) => this._personlist = c}
+              people={this.state.people}
+              selected={this.props.selectedPerson}
               onSelectPerson={this.props.onSelectPerson}/>
           </div>
           <div className="tab">

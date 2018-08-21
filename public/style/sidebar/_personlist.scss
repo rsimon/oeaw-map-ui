@@ -74,6 +74,10 @@
     background-color:rgba(255, 255, 255, 0.45);
   }
 
+  .row.selected {
+    background-color:fade-out($oeaw-blue, 0.92);
+  }
+
 }
 
 .sidebar .personlist {
