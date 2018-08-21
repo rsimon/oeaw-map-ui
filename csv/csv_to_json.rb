@@ -4,9 +4,10 @@ require 'json'
 INPUT_CSV   = 'dump_20180817.csv'
 OUTPUT_JSON = '../public/data/data.json'
 
-'''
-Super-simple domain model class
-'''
+###
+# Super-simple "domain model" class. Doesn't really do anything. But perhaps
+# useful for future use.
+###
 class Model
   def initialize(data)
     grouped = data.group_by { |record| record['person'] }
@@ -23,9 +24,9 @@ class Model
   end
 end
 
-'''
-Loads the raw CSV data, line by line, as a hash
-'''
+###
+# Loads the raw CSV data, line by line, as a hash.
+###
 def load_csv()
   f = File.read(INPUT_CSV)
   CSV.parse(f, :headers => true, :col_sep => ";").map do |row|
@@ -40,12 +41,6 @@ def load_csv()
   end
 end
 
-'''
-Builds the person/place domain model from the CSV data
-'''
-def build_model(csv)
-  csv
-end
-
+# Load CSV, build model, and write to file
 model = Model.new(load_csv)
 model.write_to_file(OUTPUT_JSON)
