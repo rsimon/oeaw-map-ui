@@ -60,7 +60,11 @@ export default class App extends Component {
   }
 
   onSelectPlace(place) {
-    // TODO
+    const person = (place) ? this.state.people.find(person => {
+      return person.name == place.person;
+    }) : null;
+
+    this.setState({ selectedPerson: person });
   }
 
   render() {

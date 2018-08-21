@@ -11,26 +11,17 @@ const zoomLevel = 12;
 
 export default class LeafletMap extends Component {
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedPerson == null)
+      this._map.closePopup();
+  }
+
   zoomIn() {
-    const map = this._leafletMap.leafletElement;
-    map.zoomIn();
+    this._map.zoomIn();
   }
 
   zoomOut() {
-    const map = this._leafletMap.leafletElement;
-    map.zoomOut();
-  }
-
-  selectByIndex(indices) {
-    const map = this._leafletMap.leafletElement;
-    map.closePopup();
-    this._markers.selectByIndex(indices);
-  }
-
-  selectByPerson(name) {
-    const map = this._leafletMap.leafletElement;
-    map.closePopup();
-    this._markers.selectByPerson(name);
+    this._map.zoomOut();
   }
 
   render() {
@@ -39,7 +30,7 @@ export default class LeafletMap extends Component {
         <Map
           className='map'
           zoomControl={false}
-          ref={c => {this._leafletMap = c;}}
+          ref={c => {this._map = (c ? c.leafletElement : null);}}
           center={mapCenter}
           zoom={zoomLevel}>
 
@@ -48,9 +39,9 @@ export default class LeafletMap extends Component {
             url={tiles} />
 
           <MarkerLayer
-            ref={c => this._markers = c}
             places={this.props.places}
-            onSelectPlace={this.props.onSelectPlace.bind(this)} />
+            selectedPerson={this.props.selectedPerson}
+            onSelectPlace={this.props.onSelectPlace} />
         </Map>
 
         <MapControls
