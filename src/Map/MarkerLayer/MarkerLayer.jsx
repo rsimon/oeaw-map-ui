@@ -18,7 +18,6 @@ export default class MarkerLayer extends Component {
         {this.props.places.map((place, idx) =>
           <SelectableMarker
             key={`marker-${idx}`}
-            idx={idx}
             place={place}
             selected={this.isPlaceSelected(place)}
             onClick={this.props.onSelectPlace.bind(this, place)} />

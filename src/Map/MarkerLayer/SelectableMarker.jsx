@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 
-import { CircleMarker, Popup } from 'react-leaflet';
+import { Marker, CircleMarker, Popup } from 'react-leaflet';
+
+const DEFAULT_ICON = new L.Icon.Default
+const SELECTED_ICON = L.icon({
+  iconUrl: '/public/images/logo-ait.png',
+  iconSize: [40, 40],
+  iconAnchor: [20, 20]
+});
 
 export default class SelectableMarker extends Component {
 
   render() {
     return (
-      <CircleMarker
-        idx={this.props.idx}
-        center={this.props.place.geom.coordinates.reverse()}
-        radius={this.props.selected ? 10 : 5}
-        color={this.props.selected ? '#a64a40' : '#4a4a4a'}
-        opacity={1}
-        fillColor={this.props.selected ? '#e75444' : '#545454'}
-        fillOpacity={1}
-        weight={1.5}
+      <Marker
+        position={this.props.place.geom.coordinates.reverse()}
+        icon={this.props.selected ? SELECTED_ICON : DEFAULT_ICON}
         onClick={this.props.onClick}>
 
         <Popup>
           <span>{this.props.place.place}</span>
         </Popup>
-      </CircleMarker>
+      </Marker>
     )
   }
 
