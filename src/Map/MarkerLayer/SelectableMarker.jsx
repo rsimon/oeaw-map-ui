@@ -2,11 +2,28 @@ import React, { Component } from 'react';
 
 import { Marker, CircleMarker, Popup } from 'react-leaflet';
 
-const DEFAULT_ICON = new L.Icon.Default
+const ICON_DEFAULTS = {
+  iconSize     : [25, 41],
+  iconAnchor   : [12, 41],
+  shadowUrl    : '/public/images/marker-shadow.png',
+  shadowSize   : [41, 41],
+  shadowAnchor : [12, 41],
+  popupAnchor  : [0, -30]
+}
+
+const DEFAULT_ICON = L.icon(Object.assign({
+  iconUrl: '/public/images/marker.png'
+}, ICON_DEFAULTS));
+
+const DISABLED_ICON = L.icon(Object.assign({
+  iconUrl: '/public/images/marker-disabled.png'
+}, ICON_DEFAULTS));
+
 const SELECTED_ICON = L.icon({
-  iconUrl: '/public/images/logo-ait.png',
-  iconSize: [40, 40],
-  iconAnchor: [20, 20]
+  iconUrl     : '/public/images/marker-selected.png',
+  iconSize    : [53, 65],
+  iconAnchor  : [24, 42],
+  popupAnchor : [0, -50]
 });
 
 export default class SelectableMarker extends Component {
@@ -15,7 +32,7 @@ export default class SelectableMarker extends Component {
     return (
       <Marker
         position={this.props.place.geom.coordinates.reverse()}
-        icon={this.props.selected ? SELECTED_ICON : DEFAULT_ICON}
+        icon={this.props.selected ? SELECTED_ICON : (this.props.disabled ? DISABLED_ICON : DEFAULT_ICON)}
         onClick={this.props.onClick}>
 
         <Popup>

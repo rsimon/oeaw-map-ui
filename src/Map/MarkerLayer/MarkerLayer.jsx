@@ -19,6 +19,7 @@ export default class MarkerLayer extends Component {
           <SelectableMarker
             key={`marker-${idx}`}
             place={place}
+            disabled={this.props.selectedPerson}
             selected={this.isPlaceSelected(place)}
             onClick={this.props.onSelectPlace.bind(this, place)} />
         )}
