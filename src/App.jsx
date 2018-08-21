@@ -27,7 +27,6 @@ export default class App extends Component {
   componentDidMount() {
     axios.get('public/data/data.json')
       .then(result => {
-        // Pull out separate lists for people and places
         const people = result.data.map(record => {
           return { name: record.name };
         });

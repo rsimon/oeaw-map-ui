@@ -8,7 +8,7 @@ export default class SearchBox extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.visible)
+    if (nextProps.visible) // Focus when state is toggled to 'visible'
       this._input.focus();
   }
 
@@ -30,4 +30,5 @@ export default class SearchBox extends Component {
       </div>
     )
   }
+  
 }

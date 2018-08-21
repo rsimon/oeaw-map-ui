@@ -6,7 +6,6 @@ import ZoomControl from './components/ZoomControl.jsx';
 export default class MapControls extends Component {
 
   render() {
-
     return (
       <div className="map-controls">
         <InfoButton
@@ -17,7 +16,6 @@ export default class MapControls extends Component {
           onZoomOut={this.props.onZoomOut} />
       </div>
     )
-
   }
 
 }

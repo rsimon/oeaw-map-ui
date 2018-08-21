@@ -27,5 +27,4 @@ export default class MarkerLayer extends Component {
     )
   }
 
-
 }

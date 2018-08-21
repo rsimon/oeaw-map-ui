@@ -56,4 +56,5 @@ export default class Sidebar extends Component {
       </CSSTransition>
     )
   }
+  
 }
