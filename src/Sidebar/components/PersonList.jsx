@@ -21,7 +21,6 @@ export default class PersonList extends Component {
         className={(isSelected ? "row selected" : "row")}
         style={style}
         onClick={this.props.onSelectPerson.bind(this, person)}>
-
         <span className="name">{person.name}</span>
       </div>
     )

@@ -31,6 +31,7 @@
       border:3px solid #fff;
       @include rounded-corners(50%);
       background-color:#146fae;
+      background-size:cover;
     }
 
     .portrait::before, .gender::before {
@@ -45,7 +46,7 @@
     }
 
     .portrait:before {
-      content:'\f007';
+      // content:'\f007';
       line-height:120px;
       font-size:65px;
     }
@@ -93,6 +94,11 @@
     h2 {
       font-size:20px;
       color:rgba(255, 255, 255, 0.8);
+    }
+
+    .alias {
+      line-height:140%;
+      font-size:15px;
     }
 
     .alias, .date {

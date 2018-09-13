@@ -1,10 +1,26 @@
 [
   {
     "name": "Obrenović Miloš Prince (1780-1860)",
+    "gender": "M",
+    "alias": [
+      "Fürst Milosch Obrenowitch/Obrenovich",
+      "Fürst Milosch Theodorowitsch Obrenowitsch",
+      "Кнез Милош Обреновић"
+    ],
+    "date_from": "1841-01-01",
+    "date_to": "1858-01-01",
+    "description": "Prince Miloš Obrenović (1780-1860) was the leader of the Second Serbian uprising, ruler of Serbia (1815-1839 and 1858-1860) and founder of the Obrenović Dynasty. Under his rule Serbia became an autonomous Principality within the Ottoman Empire. During his reign the modernization of Serbia had begun through numerous reforms (first schools, courts, administration, publishing houses, the first Constitution 1835, church reforms etc.).\n\nHe lived in Vienna with interruption between 1841 and 1858. In this period he had social contacts not only with all significant Viennese Serbs (Vuk Karadžić, Branko Radičević, Anastas Jovanović, Djura Daničić...), but with other significant Slavs and Orthodox peoples as well – especially with the Greek families Sina, Dumba and Tirka and with the Russian priest Rajevski.",
+    "image": "MilosObrenovic_1848.jpg",
     "places": [
       {
         "person": "Obrenović Miloš Prince (1780-1860)",
         "place": "Location of House of Prince Miloš Obrenović in Hietzing",
+        "type": "Private Appartment",
+        "admin_unit": "1130 Vienna",
+        "alias": [ "Lainzer Straße 39" ],
+        "date_from": "1846-01-01",
+        "date_to": "1846-01-01",
+        "description": "Prince Miloš bought this house at the beginning of the year 1846. The building still exists.",
         "geom": {
           "type": "Point",
           "coordinates": [

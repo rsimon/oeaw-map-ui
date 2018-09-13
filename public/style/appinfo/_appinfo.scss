@@ -50,6 +50,18 @@
       height:70px;
     }
 
+    .sponsored-by {
+      position:absolute;
+      right:240px;
+      bottom:20px;
+
+      .logo.ma7 {
+        width:149px;
+        height:46px;
+      }
+
+    }
+
     .developed-by {
       position:absolute;
       right:20px;
@@ -58,7 +70,7 @@
 
       span {
         display:block;
-        padding:0 3px 5px 0; 
+        padding:0 3px 5px 0;
       }
 
     }

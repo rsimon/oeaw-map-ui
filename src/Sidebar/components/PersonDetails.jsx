@@ -12,13 +12,17 @@ export default class PersonDetails extends Component {
             <div>
               <div className="header">
                 <button className="close" onClick={this.props.onClose}>&#xf00d;</button>
-                <div className="portrait">
+                <div className="portrait" style={{
+                  backgroundImage: `url("/public/images/MilosObrenovic_1848.jpg")`
+                }}>
                   <div className="gender" data-gender={this.props.person.gender}></div>
                 </div>
                 <div className="info">
                   <h1 className="name">{this.props.person.name}</h1>
                   <h2>
-                    <span className="alias">{this.props.person.alias}</span>
+                    {this.props.person.alias.map(name =>
+                      <span className="alias" key={name}>{name}</span>
+                    )}
                     <span className="date">{this.props.person.date}</span>
                   </h2>
                 </div>
