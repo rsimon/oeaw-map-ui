@@ -44,9 +44,15 @@ export default class SelectableMarker extends Component {
         position={this.props.place.geom.coordinates.reverse()}
         icon={this.props.selected ? SELECTED_ICON : (this.props.disabled ? DISABLED_ICON : DEFAULT_ICON)}
         onClick={this.props.onClick}>
-
         <Popup>
-          <span>{this.props.place.place}</span>
+          <React.Fragment>
+            <h1>{this.props.place.place}</h1>
+            <h2>{this.props.place.type}</h2>
+            <span className="alias">{this.props.place.alias}</span>, <span className="admin-unit">{this.props.place.admin_unit}</span>
+            <p>
+              {this.props.place.description}
+            </p>
+          </React.Fragment>
         </Popup>
       </Marker>
     )

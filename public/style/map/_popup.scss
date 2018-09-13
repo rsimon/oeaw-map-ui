@@ -1,0 +1,29 @@
+.leaflet-popup-content {
+  font-family:Lato;
+  line-height:150%;
+  font-size:16px;
+
+  h1, h2 {
+    padding:0;
+    margin:0;
+  }
+
+  h1 {
+    font-size:18px;
+  }
+
+  .alias, .admin-unit {
+    font-size:14px;
+    line-height:120%;
+  }
+
+  h2 {
+    font-size:16px;
+    font-weight:normal;
+  }
+
+  p {
+    line-height:180%;
+  }
+
+}
