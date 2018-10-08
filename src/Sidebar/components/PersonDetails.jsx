@@ -13,7 +13,7 @@ export default class PersonDetails extends Component {
               <div className="header">
                 <button className="close" onClick={this.props.onClose}>&#xf00d;</button>
                 <div className="portrait" style={{
-                  backgroundImage: `url("/public/images/MilosObrenovic_1848.jpg")`
+                  backgroundImage: `url("/public/images/${this.props.person.image}")`
                 }}>
                   <div className="gender" data-gender={this.props.person.gender}></div>
                 </div>
