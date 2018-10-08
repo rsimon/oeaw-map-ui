@@ -48,7 +48,15 @@ export default class SelectableMarker extends Component {
           <React.Fragment>
             <h1>{this.props.place.place}</h1>
             <h2>{this.props.place.type}</h2>
-            <span className="alias">{this.props.place.alias}</span>, <span className="admin-unit">{this.props.place.admin_unit}</span>
+            {this.props.place.alias && 
+               <span className="alias">{this.props.place.alias}</span>
+            }
+            {this.props.place.admin_unit &&
+              <React.Fragment>
+                {(this.props.place.alias) ? ', ' : ''}
+                <span className="admin-unit">{this.props.place.admin_unit}</span>
+              </React.Fragment>
+            }
             <p>
               {this.props.place.description}
             </p>
