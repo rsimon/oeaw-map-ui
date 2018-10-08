@@ -1,22 +1,52 @@
 @import '../globals';
 
 .appinfo {
+  position:relative;
 
-  .header, .content, .footer {
-    padding:20px;
+  .body {
+    display:flex;
+    flex-direction:column;
+    height:100%;
   }
 
-  h1, h2 {
-    padding:0;
-    margin:0;
-    font-weight:normal;
-  }
-
-  .header h1 {
-    font-size:28px;
+  .header, .footer {
+    flex:0;
   }
 
   .content {
+    flex: 1;
+    overflow-y:auto;
+  }
+
+  .header {
+    padding:30px 30px 10px 30px;
+  }
+
+  .content, .footer {
+    padding:20px 30px;
+  }
+
+  h1, h2 {
+    margin:0;
+    font-weight:normal;
+    line-height:150%;
+  }
+
+  .header {
+
+    h1 {
+      font-size:24px;
+    }
+
+    h2 {
+      font-size:22px;
+    }
+
+  }
+
+  .content {
+    line-height:160%;
+    font-size:17px;
 
     h2 {
       font-size:23px;
@@ -26,36 +56,40 @@
   }
 
   .footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
+    position:relative;
     background-color:$oeaw-blue;
     color:#fff;
     line-height:140%;
     box-sizing:border-box;
+    display:flex;
+    flex-direction:row;
+    min-height:120px;
 
     .imprint {
-      display:inline-block;
-      padding:0 15px;
-      span { display:block; }
-    }
+      flex:0;
+      padding:8px 15px;
+      display:flex;
+      flex-direction:row;
 
-    .logo {
-      @include rounded-corners(1px);
-      display:inline;
-    }
+      .logo.oeaw {
+        @include rounded-corners(1px);
+        width:81px;
+        height:70px;
+      }
 
-    .logo.oeaw {
-      width:81px;
-      height:70px;
+      .address { 
+        padding:3px 0 0 10px;
+        width:350px;
+        span { display:block; }
+      }
     }
 
     .sponsored-by {
-      position:absolute;
-      right:240px;
-      bottom:20px;
+      flex:1;
+      text-align:center;
 
       .logo.ma7 {
+        padding:27px 10px;
         width:149px;
         height:46px;
       }
@@ -63,21 +97,18 @@
     }
 
     .developed-by {
-      position:absolute;
-      right:20px;
-      bottom:20px;
-      text-align:right;
+      flex:0;
 
       span {
         display:block;
         padding:0 3px 5px 0;
       }
 
-    }
+      .logo.ait {
+        width:185px;
+        height:45px;
+      } 
 
-    .logo.ait {
-      width:185px;
-      height:45px;
     }
 
   }
