@@ -20,7 +20,7 @@ export default class PersonDetails extends Component {
                 <div className="info">
                   <h1 className="name">{this.props.person.name}</h1>
                   <h2>
-                    {this.props.person.alias.map(name =>
+                    {this.props.person.alias && this.props.person.alias.map(name =>
                       <span className="alias" key={name}>{name}</span>
                     )}
                     <span className="date">{this.props.person.date}</span>
