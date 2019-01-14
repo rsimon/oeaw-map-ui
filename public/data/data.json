@@ -1,107 +1,871 @@
 [
   {
-    "name": "Obrenović Miloš Prince (1780-1860)",
-    "gender": "M",
-    "alias": [
-      "Fürst Milosch Obrenowitch/Obrenovich",
-      "Fürst Milosch Theodorowitsch Obrenowitsch",
-      "Кнез Милош Обреновић"
-    ],
-    "date_from": "1841-01-01",
-    "date_to": "1858-01-01",
-    "description": "Prince Miloš Obrenović (1780-1860) was the leader of the Second Serbian uprising, ruler of Serbia (1815-1839 and 1858-1860) and founder of the Obrenović Dynasty. Under his rule Serbia became an autonomous Principality within the Ottoman Empire. During his reign the modernization of Serbia had begun through numerous reforms (first schools, courts, administration, publishing houses, the first Constitution 1835, church reforms etc.).\n\nHe lived in Vienna with interruption between 1841 and 1858. In this period he had social contacts not only with all significant Viennese Serbs (Vuk Karadžić, Branko Radičević, Anastas Jovanović, Djura Daničić...), but with other significant Slavs and Orthodox peoples as well – especially with the Greek families Sina, Dumba and Tirka and with the Russian priest Rajevski.",
-    "image": "MilosObrenovic_1848.jpg",
+    "id": "689",
     "places": [
       {
-        "person": "Obrenović Miloš Prince (1780-1860)",
-        "place": "Location of House of Prince Miloš Obrenović in Hietzing",
-        "type": "Private Appartment",
-        "admin_unit": "1130 Vienna",
-        "alias": [ "Lainzer Straße 39" ],
-        "date_from": "1846-01-01",
-        "date_to": "1846-01-01",
-        "description": "Prince Miloš bought this house at the beginning of the year 1846. The building still exists.",
+        "id": "689",
+        "name": "Sandić Aleksandar  (1836-1908)",
+        "placename": "Aleksandar Sandić apartment",
         "geom": {
           "type": "Point",
           "coordinates": [
-            16.2943091243435,
+            16.38810396194458,
+            48.20439068486124
+          ]
+        }
+      },
+      {
+        "id": "689",
+        "name": "Sandić Aleksandar  (1836-1908)",
+        "placename": "Editorial office “Ost und West”",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.389000135919794,
+            48.202998105116215
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1072",
+    "places": [
+      {
+        "id": "1072",
+        "name": "Sečujac von Heldenfeld Arsenije (1720-1814)",
+        "placename": "Apartment of General Major and Baron Arsenije Sečujac von Heldenfeld",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.37592002749443,
+            48.20840482088987
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1066",
+    "places": [
+      {
+        "id": "1066",
+        "name": "Teodorović Djordje (1830-1889)",
+        "placename": "Apartment of of General Major Djordje Teodorović",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.366119235754013,
+            48.197435631886414
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "681",
+    "places": [
+      {
+        "id": "681",
+        "name": "Davidović Dimitrije (1789-1838)",
+        "placename": "Dimitrije Davidović apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.379483342170712,
+            48.21119393818616
+          ]
+        }
+      },
+      {
+        "id": "681",
+        "name": "Davidović Dimitrije (1789-1838)",
+        "placename": "Dimitrije Davidović printing house",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.376549005508423,
+            48.21086863240633
+          ]
+        }
+      },
+      {
+        "id": "681",
+        "name": "Davidović Dimitrije (1789-1838)",
+        "placename": "Schmidbauer printing house",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.369829788537913,
+            48.20497702227688
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1133",
+    "places": [
+      {
+        "id": "1133",
+        "name": "Kapamadžija Nikola ( - 1908)",
+        "placename": "Editorial office of “Mlada Srbadija“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.339824199676514,
+            48.21527974578261
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "2229",
+    "places": [
+      {
+        "id": "2229",
+        "name": "Stefanović Vilovski Todor",
+        "placename": "Editorial office of “Srbadija“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.384681463241577,
+            48.20421907246163
+          ]
+        }
+      },
+      {
+        "id": "2229",
+        "name": "Stefanović Vilovski Todor",
+        "placename": "Editorial office of “Srpska zora“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.3520024121681,
+            48.2043613677946
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1132",
+    "places": [
+      {
+        "id": "1132",
+        "name": "Mandrović Konstantin Kosta (1840-1920) ",
+        "placename": "Editorial office of “Srpska zora“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.3520024121681,
+            48.2043613677946
+          ]
+        }
+      },
+      {
+        "id": "1132",
+        "name": "Mandrović Konstantin Kosta (1840-1920) ",
+        "placename": "Editorial office of “Nemanja“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.38822984383715,
+            48.203852606555905
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "127",
+    "places": [
+      {
+        "id": "127",
+        "name": "Obrenović Milan I King (1854-1901)",
+        "placename": "Grand Hotel",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.372362663969398,
+            48.202151745880464
+          ]
+        }
+      },
+      {
+        "id": "127",
+        "name": "ObrenoviÄ‡ Milan I King (1854-1901)",
+        "placename": "King Milan Apartment ",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.37565983993618,
+            48.2034986516222
+          ]
+        }
+      },
+      {
+        "id": "127",
+        "name": "Obrenović Milan I King (1854-1901)",
+        "placename": "King Milan Apartment ",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.37565983993618,
+            48.2034986516222
+          ]
+        }
+      },
+      {
+        "id": "127",
+        "name": "Obrenović Milan I King (1854-1901)",
+        "placename": "Imperial Hotel",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.37306130330935,
+            48.2010755364296
+          ]
+        }
+      },
+      {
+        "id": "127",
+        "name": "Obrenović Milan I King (1854-1901)",
+        "placename": "Sacher Hotel",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.36998327091441,
+            48.204019862714354
+          ]
+        }
+      },
+      {
+        "id": "127",
+        "name": "Obrenović Milan I King (1854-1901)",
+        "placename": "Serbian Orthodox Church of Saint Sava in Veithgasse ",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.37976321348708,
+            48.1986592347142
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1148",
+    "places": [
+      {
+        "id": "1148",
+        "name": "Karadžić Stefanović Vuk (1787-1864)",
+        "placename": "Graziensälen, „Zur goldenen Birne“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.389400055631995,
+            48.203960870691134
+          ]
+        }
+      },
+      {
+        "id": "1148",
+        "name": "Karadžić Stefanović Vuk (1787-1864)",
+        "placename": "Johann Schnierer printing house",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.39385023721843,
+            48.199380796311985
+          ]
+        }
+      },
+      {
+        "id": "1148",
+        "name": "Karadžić Stefanović Vuk (1787-1864)",
+        "placename": "Sofiensäle",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.391089847311378,
+            48.20687106783611
+          ]
+        }
+      },
+      {
+        "id": "1148",
+        "name": "Karadžić Stefanović Vuk (1787-1864)",
+        "placename": "Theater in der Josefstadt Sträußelsäle",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.351006915792823,
+            48.20973462621724
+          ]
+        }
+      },
+      {
+        "id": "1148",
+        "name": "Karadžić Stefanović Vuk (1787-1864)",
+        "placename": "Mechitaristen printing house",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.354234027137565,
+            48.20601739864222
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "179",
+    "places": [
+      {
+        "id": "179",
+        "name": "Obrenović Mihailo Prince (1823-1868)",
+        "placename": "Graziensälen, „Zur goldenen Birne“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.389400055631995,
+            48.203960870691134
+          ]
+        }
+      },
+      {
+        "id": "179",
+        "name": "Obrenović Mihailo Prince (1823-1868)",
+        "placename": "Obrenović-Palais",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.381144216284156,
+            48.19916976830479
+          ]
+        }
+      },
+      {
+        "id": "179",
+        "name": "Obrenović Mihailo Prince (1823-1868)",
+        "placename": "Theater in der Josefstadt Sträußelsäle",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.351006915792823,
+            48.20973462621724
+          ]
+        }
+      },
+      {
+        "id": "179",
+        "name": "Obrenović Mihailo Prince (1823-1868)",
+        "placename": "Fetzer guesthouse",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.3807257916778,
+            48.2125444042663
+          ]
+        }
+      },
+      {
+        "id": "179",
+        "name": "Obrenović Mihailo Prince (1823-1868)",
+        "placename": "Russian legation in Vienna",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.371148462438185,
+            48.2036194300846
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "104",
+    "places": [
+      {
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "Graziensälen, „Zur goldenen Birne“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.389400055631995,
+            48.203960870691134
+          ]
+        }
+      },
+      {
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "Hofjagd- und Rüstkammer, Hofburg Palace",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.363725950941443,
+            48.20485468347679
+          ]
+        }
+      },
+      {
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "Obrenović-Palais",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.381144216284156,
+            48.19916976830479
+          ]
+        }
+      },
+      {
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "Theater in der Josefstadt Sträußelsäle",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.351006915792823,
+            48.20973462621724
+          ]
+        }
+      },
+      {
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "House of Prince Miloš Obrenović in Hietzing",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.29430912434354,
             48.1841239341827
           ]
         }
       },
       {
-        "person": "Obrenović Miloš Prince (1780-1860)",
-        "place": "Location of House of Prince Miloš Obrenović in Annagasse ",
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "House of Prince Miloš Obrenović in Annagasse ",
         "geom": {
           "type": "Point",
           "coordinates": [
-            16.3722187737022,
-            48.2041332660383
+            16.372218773702183,
+            48.204133266038255
           ]
         }
       },
       {
-        "person": "Obrenović Miloš Prince (1780-1860)",
-        "place": "Location of House of Prince Miloš Obrenović in Landstraßer Hauptstraße ",
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "House of Prince Miloš Obrenović in Landstraßer Hauptstraße ",
         "geom": {
           "type": "Point",
           "coordinates": [
-            16.3935072894015,
+            16.39350728940152,
             48.1996854366772
           ]
         }
       },
       {
-        "person": "Obrenović Miloš Prince (1780-1860)",
-        "place": "Location of House of Prince Miloš Obrenović in Untere Donaustrasse",
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "House of Prince Miloš Obrenović in Untere Donaustrasse",
         "geom": {
           "type": "Point",
           "coordinates": [
-            16.3836219906636,
-            48.2128114990699
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "name": "Obrenović Milan I King (1854-1901)",
-    "places": [
-      {
-        "person": "Obrenović Milan I King (1854-1901)",
-        "place": "Location of King Milan Apartment ",
-        "geom": {
-          "type": "Point",
-          "coordinates": [
-            16.3756598399362,
-            48.2034986516222
+            16.383621990663578,
+            48.21281149906985
           ]
         }
       },
       {
-        "person": "Obrenović Milan I King (1854-1901)",
-        "place": "Location of King Milan Apartment ",
+        "id": "104",
+        "name": "Obrenović Miloš Prince (1780-1860)",
+        "placename": "\"zum Fürsten Milosch\" silk store",
         "geom": {
           "type": "Point",
           "coordinates": [
-            16.3756598399362,
-            48.2034986516222
+            16.370059400843303,
+            48.20813741226061
           ]
         }
       }
     ]
   },
   {
-    "name": "Jović Spiridon (1801-1836)",
+    "id": "193",
     "places": [
       {
-        "person": "Jović Spiridon (1801-1836)",
-        "place": "Location of Spiridon Jović Apartment",
+        "id": "193",
+        "name": "Obrenović Julie Princess (1831-1919)",
+        "placename": "Obrenović-Palais",
         "geom": {
           "type": "Point",
           "coordinates": [
-            16.3734483526886,
-            48.2066376815494
+            16.381144216284156,
+            48.19916976830479
+          ]
+        }
+      },
+      {
+        "id": "193",
+        "name": "Obrenović Julie Princess (1831-1919)",
+        "placename": "Russian legation in Vienna",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.371148462438185,
+            48.2036194300846
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1166",
+    "places": [
+      {
+        "id": "1166",
+        "name": "Petrović Njegoš Petar II (1813-1851) ",
+        "placename": "Sofiensäle",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.391089847311378,
+            48.20687106783611
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "673",
+    "places": [
+      {
+        "id": "673",
+        "name": "Novaković Stefan (1760-1823)",
+        "placename": "Stefan Novaković printing house",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.372058987617493,
+            48.21192676231663
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1154",
+    "places": [
+      {
+        "id": "1154",
+        "name": "Rajić Jovan (1726-1801)   ",
+        "placename": "Stefan Novaković printing house",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.372058987617493,
+            48.21192676231663
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "395",
+    "places": [
+      {
+        "id": "395",
+        "name": "Obrenović Miloš  (1829-1861)",
+        "placename": "Stiftskaserne, former K. und K.  Ingeneurakademie",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.35608073323965,
+            48.201777555656015
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "399",
+    "places": [
+      {
+        "id": "399",
+        "name": "Nikolić de Rudna Jelisaveta-Savka  (1814–1848)",
+        "placename": "Fetzer guesthouse",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.3807257916778,
+            48.2125444042663
+          ]
+        }
+      },
+      {
+        "id": "399",
+        "name": "Nikolić de Rudna Jelisaveta-Savka  (1814–1848)",
+        "placename": "Tomb of Nikolić de Rudna family on St. Marx Cemetery",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.40130906365812,
+            48.18128498809994
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "407",
+    "places": [
+      {
+        "id": "407",
+        "name": "Nikolić de Rudna Mladen (1845-1849) ",
+        "placename": "Fetzer guesthouse",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.3807257916778,
+            48.2125444042663
+          ]
+        }
+      },
+      {
+        "id": "407",
+        "name": "Nikolić de Rudna Mladen (1845-1849) ",
+        "placename": "Tomb of Nikolić de Rudna family on St. Marx Cemetery",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.40130906365812,
+            48.18128498809994
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "403",
+    "places": [
+      {
+        "id": "403",
+        "name": "Obrenović Jekatarina- Katica  (1826-1848)",
+        "placename": "Tomb of Jekatarina Obrenović on St. Marx Cemetery",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.4013895299286,
+            48.1812992955573
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "364",
+    "places": [
+      {
+        "id": "364",
+        "name": "Jović Spiridon (1801-1836)",
+        "placename": "Spiridon Jović Apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.373448352688584,
+            48.20663768154935
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "1486",
+    "places": [
+      {
+        "id": "1486",
+        "name": "Miletić Jovan (1715-1790)",
+        "placename": "Jovan Miletić apartmnent",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.374719712673922,
+            48.21010462488505
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "677",
+    "places": [
+      {
+        "id": "677",
+        "name": "Andrić Aleksandar  (1816-1876)",
+        "placename": "Aleksandar Andrić apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.348215096134478,
+            48.19943335762126
+          ]
+        }
+      },
+      {
+        "id": "677",
+        "name": "Andrić Aleksandar  (1816-1876)",
+        "placename": "Editorial office of “Svetovid“",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.351176008575088,
+            48.20775309930295
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "236",
+    "places": [
+      {
+        "id": "236",
+        "name": "Arlov Ritter von Sava (1827-1903)",
+        "placename": "Apartment of Field Marshal Lieutenant Sava Ritter von Arlov",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.386404795683873,
+            48.1996514686249
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "574",
+    "places": [
+      {
+        "id": "574",
+        "name": "Karadjordjević Aleksandar Prince (1806-1885)",
+        "placename": "Karadjordjević Apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.36460621983214,
+            48.2028310690001
+          ]
+        }
+      },
+      {
+        "id": "574",
+        "name": "Karadjordjević Aleksandar Prince (1806-1885)",
+        "placename": "Karadjordjević Apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.363033716389143,
+            48.202299119541145
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "578",
+    "places": [
+      {
+        "id": "578",
+        "name": " Karadjordjević Persida Princess  (1813-1873) ",
+        "placename": "Karadjordjević Apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.36460621983214,
+            48.2028310690001
+          ]
+        }
+      },
+      {
+        "id": "578",
+        "name": " Karadjordjević Persida Princess  (1813-1873) ",
+        "placename": "Karadjordjević Apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.363033716389143,
+            48.202299119541145
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "594",
+    "places": [
+      {
+        "id": "594",
+        "name": "Nikolajević Milica (1850-1873) ",
+        "placename": "Karadjordjević Apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.36460621983214,
+            48.2028310690001
+          ]
+        }
+      },
+      {
+        "id": "594",
+        "name": "Nikolajević Milica (1850-1873) ",
+        "placename": "Karadjordjević Apartment",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.363033716389143,
+            48.202299119541145
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "685",
+    "places": [
+      {
+        "id": "685",
+        "name": "Frušić Dimitrije (1790-1838) ",
+        "placename": "Schmidbauer printing house",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.369829788537913,
+            48.20497702227688
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "2092",
+    "places": [
+      {
+        "id": "2092",
+        "name": "Aleksić Vasilije (1813-1877)",
+        "placename": "\"zum Fürsten Milosch\" silk store",
+        "geom": {
+          "type": "Point",
+          "coordinates": [
+            16.370059400843303,
+            48.20813741226061
           ]
         }
       }

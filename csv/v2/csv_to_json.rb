@@ -1,8 +1,8 @@
 require 'csv'
 require 'json'
 
-INPUT_CSV   = 'dump_20180817.csv'
-OUTPUT_JSON = '../public/data/data.json'
+INPUT_CSV   = 'dump_orthodox_2019-01-11.csv'
+OUTPUT_JSON = '../../public/data/data.json'
 
 ###
 # Super-simple "domain model" class. Doesn't really do anything. But perhaps
@@ -10,9 +10,9 @@ OUTPUT_JSON = '../public/data/data.json'
 ###
 class Model
   def initialize(data)
-    grouped = data.group_by { |record| record['person'] }
+    grouped = data.group_by { |record| record['id'] }
     as_array = grouped.map do |key, val|
-      { 'name' => key, 'places' => val }
+      { 'id' => key, 'places' => val }
     end
     @model = as_array
   end
@@ -29,13 +29,15 @@ end
 ###
 def load_csv()
   f = File.read(INPUT_CSV)
-  CSV.parse(f, :headers => true, :col_sep => ";").map do |row|
+  CSV.parse(f, :headers => true, :col_sep => ",").map do |row|
     as_hash = row.to_hash
 
-    geom = JSON.parse(as_hash['polygon_point'])
-    as_hash.delete('polygon_point')
-    geom['coordinates'] = geom['coordinates']
+    geom = { 
+      type: "Point",
+      coordinates: as_hash['coordinates'].split.map { |num| num.to_f }
+    }
 
+    as_hash.delete('coordinates')
     as_hash['geom'] = geom
     as_hash
   end
