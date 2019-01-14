@@ -12,7 +12,11 @@ class Model
   def initialize(data)
     grouped = data.group_by { |record| record['id'] }
     as_array = grouped.map do |key, val|
-      { 'id' => key, 'places' => val }
+      { 
+        'id' => key, 
+        'name' => val[0]['name'],
+        'places' => val 
+      }
     end
     @model = as_array
   end
