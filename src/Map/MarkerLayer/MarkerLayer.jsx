@@ -7,7 +7,7 @@ export default class MarkerLayer extends Component {
 
   isPlaceSelected(place) {
     if (this.props.selectedPerson)
-      return place.person == this.props.selectedPerson.name;
+      return place.name == this.props.selectedPerson.name;
     else
       return false; // No selected person - deselect all
   }

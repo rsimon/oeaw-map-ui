@@ -62,7 +62,7 @@ export default class App extends Component {
 
   onSelectPlace(place) {
     const person = (place) ? this.state.people.find(person => {
-      return person.name == place.person;
+      return person.name == place.name;
     }) : null;
 
     this.setState({ selectedPerson: person });
