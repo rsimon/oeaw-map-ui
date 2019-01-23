@@ -1,7 +1,7 @@
 require 'csv'
 require 'json'
 
-INPUT_CSV   = 'dump_orthodox_2019-01-11.csv'
+INPUT_CSV   = 'orthodox_dump-2019-01-21.csv'
 OUTPUT_JSON = '../../public/data/data.json'
 
 ###
@@ -15,6 +15,7 @@ class Model
       { 
         'id' => key, 
         'name' => val[0]['name'],
+        'description' => val[0]['entity_description'],
         'places' => val 
       }
     end
@@ -38,10 +39,10 @@ def load_csv()
 
     geom = { 
       type: "Point",
-      coordinates: as_hash['coordinates'].split.map { |num| num.to_f }
+      coordinates: as_hash['polygon_center_point'].split.map { |num| num.to_f }
     }
 
-    as_hash.delete('coordinates')
+    as_hash.delete('polygon_center_point')
     as_hash['geom'] = geom
     as_hash
   end
