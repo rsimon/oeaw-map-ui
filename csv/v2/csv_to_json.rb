@@ -1,7 +1,7 @@
 require 'csv'
 require 'json'
 
-INPUT_CSV   = 'orthodox_dump-2019-01-21.csv'
+INPUT_CSV   = 'orthodox_dump_23-01-2019-with_pictures.csv'
 OUTPUT_JSON = '../../public/data/data.json'
 
 ###
@@ -16,6 +16,7 @@ class Model
         'id' => key, 
         'name' => val[0]['name'],
         'description' => val[0]['entity_description'],
+        'image' => val[0]['pic_url'],
         'places' => val 
       }
     end
