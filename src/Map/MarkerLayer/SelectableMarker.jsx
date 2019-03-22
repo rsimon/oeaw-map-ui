@@ -46,7 +46,7 @@ export default class SelectableMarker extends Component {
         onClick={this.props.onClick}>
         <Popup>
           <React.Fragment>
-            <h1>{this.props.place.placename}</h1>
+            <h1>{this.props.place.location_name}</h1>
             <h2>{this.props.place.type}</h2>
             {this.props.place.alias && 
                <span className="alias">{this.props.place.alias}</span>
