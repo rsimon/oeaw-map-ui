@@ -58,7 +58,7 @@ export default class SelectableMarker extends Component {
               </React.Fragment>
             }
             <p>
-              {this.props.place.description}
+              {this.props.place.location_description}
             </p>
           </React.Fragment>
         </Popup>

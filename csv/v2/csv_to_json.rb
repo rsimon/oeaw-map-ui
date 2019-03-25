@@ -1,7 +1,8 @@
 require 'csv'
 require 'json'
 
-INPUT_CSV   = 'orthodox_dump_23-01-2019-with_pictures.csv'
+# INPUT_CSV   = 'orthodox_dump_23-01-2019-with_pictures.csv'
+INPUT_CSV   = 'orthodox_dump_24-03-2019.csv'
 OUTPUT_JSON = '../../public/data/data.json'
 
 ###
