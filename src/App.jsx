@@ -17,7 +17,8 @@ export default class App extends Component {
       people : [], // All people in the dataset
       places : [], // All places in the dataset
 
-      selectedPerson: null,  // Currently selected person, if any
+      selectedPeople: [],  // Currently selected people
+
       placeDetailsFor: null, // Details model for a selected place, if any
 
       isAppInfoVisible: false // UI state: app info modal visible?
@@ -35,6 +36,7 @@ export default class App extends Component {
 
         // An elaborate flatMap replacement... (sigh)
         const places = [].concat.apply([], result.data.map(record => {
+          // TODO duplicates?
           return record.places;
         }));
 
@@ -42,7 +44,7 @@ export default class App extends Component {
         this.setState({
           people: people,
           places: places,
-          selectedPerson: null,
+          selectedPeople: [],
           placeDetailsFor: null
         });
       })
@@ -57,15 +59,16 @@ export default class App extends Component {
   }
 
   onSelectPerson(person) {
-    this.setState({ selectedPerson: person });
+    this.setState({ selectedPeople: [ person ] });
   }
 
   onSelectPlace(place) {
-    const person = (place) ? this.state.people.find(person => {
+    // TODO filter instead of find - allow multiple selected people
+    const people = (place) ? this.state.people.filter(person => {
       return person.name == place.name;
     }) : null;
 
-    this.setState({ selectedPerson: person });
+    this.setState({ selectedPeople: people });
   }
 
   render() {
@@ -73,13 +76,13 @@ export default class App extends Component {
       <div className='container'>
         <Map
           places={this.state.places}
-          selectedPerson={this.state.selectedPerson}
+          selectedPeople={this.state.selectedPeople}
           onSelectPlace={this.onSelectPlace.bind(this)}
           onOpenAppInfo={this.openAppInfo.bind(this)} />
 
         <Sidebar
           people={this.state.people}
-          selectedPerson={this.state.selectedPerson}
+          selectedPeople={this.state.selectedPeople}
           onSelectPerson={this.onSelectPerson.bind(this)} />
 
         {this.state.isAppInfoVisible &&

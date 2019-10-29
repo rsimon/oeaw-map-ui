@@ -52,7 +52,7 @@ export default class PersonList extends Component {
         </div>
 
         <PersonDetails
-          person={this.props.selected}
+          people={this.props.selected}
           onClose={this.props.onSelectPerson.bind(this, null)} />
       </div>
     )

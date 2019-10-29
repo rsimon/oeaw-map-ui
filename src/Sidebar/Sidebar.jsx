@@ -46,7 +46,7 @@ export default class Sidebar extends Component {
 
             <PersonList
               people={this.state.people}
-              selected={this.props.selectedPerson}
+              selected={this.props.selectedPeople}
               onSelectPerson={this.props.onSelectPerson}/>
           </div>
           <div className="tab">
