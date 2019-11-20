@@ -41,24 +41,19 @@ export default class App extends Component {
         });
 
         const distinctPlaces = result.data.reduce((distinct, record) => {
-
           const toAdd = [];
-
           record.places.forEach(place => {
-            const exists = distinct.find(p => isSameLocation(place, p)) || 
+            const exists = 
+              distinct.find(p => isSameLocation(place, p)) || 
               toAdd.find(p => isSameLocation(place, p));
 
-            if (!exists) {
+            if (!exists)
               toAdd.push(place);
-            } else {
-              console.log('Skipping', place);
-            }
           });
 
           return distinct.concat(toAdd);
         }, []);
 
-        console.log(distinctPlaces);
         // Initial state
         this.setState({
           people: people,

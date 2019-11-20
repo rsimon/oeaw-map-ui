@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import { Marker, CircleMarker, Popup } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
+import Lightbox from 'react-image-lightbox'; 
 
 // Preload images
 ['public/images/marker-disabled.png', 'public/images/marker-selected.png'].forEach(url => {
@@ -36,6 +36,7 @@ export default class SelectableMarker extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { imgFullscreen: false }
   }
 
   render() {
@@ -60,6 +61,21 @@ export default class SelectableMarker extends Component {
             <p>
               {this.props.place.location_description}
             </p>
+
+            {this.props.place.pic_url && 
+              <React.Fragment>
+                <img 
+                  src={this.props.place.pic_url} 
+                  onClick={() => this.setState({ imgFullscreen: true })} />
+
+                { this.state.imgFullscreen && 
+                  <Lightbox
+                    wrapperClassName="lightbox"
+                    mainSrc={this.props.place.pic_url}
+                    onCloseRequest={() => this.setState({ imgFullscreen: false })} />
+                }
+              </React.Fragment>
+            }
           </React.Fragment>
         </Popup>
       </Marker>

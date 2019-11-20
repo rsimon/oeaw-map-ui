@@ -12,7 +12,7 @@ const zoomLevel = 12;
 export default class LeafletMap extends Component {
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedPerson == null) // Close popups on deselect
+    if (nextProps.selectedPeople == null) // Close popups on deselect
       this._map.closePopup();
   }
 
