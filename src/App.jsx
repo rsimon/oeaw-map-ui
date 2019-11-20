@@ -59,14 +59,17 @@ export default class App extends Component {
   }
 
   onSelectPerson(person) {
-    this.setState({ selectedPeople: [ person ] });
+    if (person)
+      this.setState({ selectedPeople: [ person.id ] });
+    else 
+      this.setState({ selectedPeople: [] });
   }
 
   onSelectPlace(place) {
     // TODO filter instead of find - allow multiple selected people
     const people = (place) ? this.state.people.filter(person => {
       return person.name == place.name;
-    }) : null;
+    }).map(person => person.id) : null;
 
     this.setState({ selectedPeople: people });
   }

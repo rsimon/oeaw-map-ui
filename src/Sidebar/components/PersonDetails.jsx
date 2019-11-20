@@ -1,38 +1,54 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import Lightbox from 'react-image-lightbox';
+
+import 'react-image-lightbox/style.css';
 
 export default class PersonDetails extends Component {
 
+  state = {
+    fullscreen: false
+  }
+
   render() {
+    const person = this.props.people;
     return (
-      <CSSTransition in={this.props.person != null} timeout={300} classNames="slide">
-        <div className="persondetails">
-          {this.props.person &&
-            <div>
-              <div className="header">
-                <button className="close" onClick={this.props.onClose}>&#xf00d;</button>
-                <div className="portrait" style={{
-                  backgroundImage: `url("${this.props.person.image}")`
-                }}>
-                  <div className="gender" data-gender={this.props.person.gender}></div>
+      <React.Fragment>
+        <CSSTransition in={person != null} timeout={300} classNames="slide">
+          <div className="persondetails">
+            {person &&
+              <div>
+                <div className="header">
+                  <button className="close" onClick={this.props.onClose}>&#xf00d;</button>
+                  <div className="portrait" onClick={() => this.setState({ fullscreen: true })} style={{
+                    backgroundImage: `url("${person.image}")`
+                  }}>
+                    <div className="gender" data-gender={person.gender}></div>
+                  </div>
+                  <div className="info">
+                    <h1 className="name">{person.name}</h1>
+                    <h2>
+                      {person.alias && person.alias.map(name =>
+                        <span className="alias" key={name}>{name}</span>
+                      )}
+                      <span className="date">{person.date}</span>
+                    </h2>
+                  </div>
                 </div>
-                <div className="info">
-                  <h1 className="name">{this.props.person.name}</h1>
-                  <h2>
-                    {this.props.person.alias && this.props.person.alias.map(name =>
-                      <span className="alias" key={name}>{name}</span>
-                    )}
-                    <span className="date">{this.props.person.date}</span>
-                  </h2>
+                <div className="body">
+                  <p className="description">{person.description}</p>
                 </div>
               </div>
-              <div className="body">
-                <p className="description">{this.props.person.description}</p>
-              </div>
-            </div>
-          }
-        </div>
-      </CSSTransition>
+            }
+          </div>
+        </CSSTransition>
+        { this.state.fullscreen && 
+          <Lightbox
+            wrapperClassName="lightbox"
+            mainSrc={person.image}
+            onCloseRequest={() => this.setState({ fullscreen: false })} />
+        }
+      </React.Fragment>
     )
   }
 }

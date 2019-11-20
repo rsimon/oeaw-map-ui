@@ -13,7 +13,8 @@ export default class PersonList extends Component {
     style        // Style object to be applied to row (to position it)
   }) {
     const person = this.props.people[index];
-    const isSelected = person == this.props.selected;
+    const isSelected = this.props.selected.includes(person.id);
+
     return (
       <div
         key={key}
@@ -52,7 +53,7 @@ export default class PersonList extends Component {
         </div>
 
         <PersonDetails
-          people={this.props.selected}
+          people={this.props.selected && this.props.people.find(p => this.props.selected.includes(p.id))}
           onClose={this.props.onSelectPerson.bind(this, null)} />
       </div>
     )

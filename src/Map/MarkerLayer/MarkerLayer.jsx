@@ -6,10 +6,11 @@ import SelectableMarker from './SelectableMarker.jsx';
 export default class MarkerLayer extends Component {
 
   isPlaceSelected(place) {
+    return false; /*
     if (this.props.selectedPerson)
       return place.name == this.props.selectedPerson.name;
     else
-      return false; // No selected person - deselect all
+      return false; // No selected person - deselect all */
   }
 
   render() {
