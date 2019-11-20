@@ -26,6 +26,12 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+
+    const isSameLocation = (a, b) => {
+      return a.geom.coordinates[0] == b.geom.coordinates[0] && 
+        a.geom.coordinates[1] == b.geom.coordinates[1];
+    }
+
     axios.get('public/data/data.json')
       .then(result => {
         const people = result.data.map(record => {
@@ -34,16 +40,29 @@ export default class App extends Component {
           return clone;
         });
 
-        // An elaborate flatMap replacement... (sigh)
-        const places = [].concat.apply([], result.data.map(record => {
-          // TODO duplicates?
-          return record.places;
-        }));
+        const distinctPlaces = result.data.reduce((distinct, record) => {
 
+          const toAdd = [];
+
+          record.places.forEach(place => {
+            const exists = distinct.find(p => isSameLocation(place, p)) || 
+              toAdd.find(p => isSameLocation(place, p));
+
+            if (!exists) {
+              toAdd.push(place);
+            } else {
+              console.log('Skipping', place);
+            }
+          });
+
+          return distinct.concat(toAdd);
+        }, []);
+
+        console.log(distinctPlaces);
         // Initial state
         this.setState({
           people: people,
-          places: places,
+          places: distinctPlaces,
           selectedPeople: [],
           placeDetailsFor: null
         });
@@ -66,7 +85,6 @@ export default class App extends Component {
   }
 
   onSelectPlace(place) {
-    // TODO filter instead of find - allow multiple selected people
     const people = (place) ? this.state.people.filter(person => {
       return person.name == place.name;
     }).map(person => person.id) : null;

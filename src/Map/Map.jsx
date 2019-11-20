@@ -38,10 +38,10 @@ export default class LeafletMap extends Component {
             attribution={attribution}
             url={tiles} />
 
-          {/* <MarkerLayer
+          <MarkerLayer
             places={this.props.places}
             selectedPeople={this.props.selectedPeople}
-          onSelectPlace={this.props.onSelectPlace} /> */}
+            onSelectPlace={this.props.onSelectPlace} />
         </Map>
 
         <MapControls
