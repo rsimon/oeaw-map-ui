@@ -38,7 +38,7 @@ export default class App extends Component {
           const clone = Object.assign({}, record);
           delete clone.places;
           return clone;
-        });
+        }).sort((a, b) => (a.name > b.name) ? 1 : -1);
 
         const distinctPlaces = result.data.reduce((distinct, record) => {
           const toAdd = [];
