@@ -5,13 +5,8 @@ import SelectableMarker from './SelectableMarker.jsx';
 
 export default class MarkerLayer extends Component {
 
-  isPlaceSelected(place) {
-    return false; /*
-    if (this.props.selectedPerson)
-      return place.name == this.props.selectedPerson.name;
-    else
-      return false; // No selected person - deselect all */
-  }
+  isPlaceSelected = place => (this.props.selectedPeople.length > 0) ? 
+    this.props.selectedPeople.includes(place.id) :  false;
 
   render() {
     return(
@@ -20,7 +15,7 @@ export default class MarkerLayer extends Component {
           <SelectableMarker
             key={`marker-${idx}`}
             place={place}
-            disabled={this.props.selectedPerson}
+            disabled={this.props.selectedPeople.length > 0}
             selected={this.isPlaceSelected(place)}
             onClick={this.props.onSelectPlace.bind(this, place)} />
         )}
