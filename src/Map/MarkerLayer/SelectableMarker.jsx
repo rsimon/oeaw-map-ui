@@ -65,13 +65,13 @@ export default class SelectableMarker extends Component {
             {this.props.place.pic_url && 
               <React.Fragment>
                 <img 
-                  src={this.props.place.pic_url} 
+                  src={this.props.place.place_image} 
                   onClick={() => this.setState({ imgFullscreen: true })} />
 
                 { this.state.imgFullscreen && 
                   <Lightbox
                     wrapperClassName="lightbox"
-                    mainSrc={this.props.place.pic_url}
+                    mainSrc={this.props.place.place_image}
                     onCloseRequest={() => this.setState({ imgFullscreen: false })} />
                 }
               </React.Fragment>
