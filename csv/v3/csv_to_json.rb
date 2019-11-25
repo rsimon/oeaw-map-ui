@@ -1,8 +1,7 @@
 require 'csv'
 require 'json'
 
-# INPUT_CSV   = 'orthodox_dump_21-11-2019-v2.csv'
-INPUT_CSV   = 'orthodox_dump_24-11-2019.csv'
+INPUT_CSV   = 'orthodox_dump_25-11-2019.csv'
 OUTPUT_JSON = '../../public/data/data.json'
 
 ###
@@ -46,6 +45,15 @@ def load_csv()
 
     as_hash.delete('coordinates')
     as_hash['geom'] = geom
+
+    if (as_hash['pic_url'].strip.length < 1)
+      as_hash.delete('pic_url')
+    end
+
+    if (as_hash['place_image'].strip.length < 1)
+      as_hash.delete('place_image')
+    end
+
     as_hash
   end
 end

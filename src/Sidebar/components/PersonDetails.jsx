@@ -12,6 +12,8 @@ export default class PersonDetails extends Component {
 
   render() {
     const person = this.props.people;
+    const imgBg = (person && person.image) ? { backgroundImage: `url("${person.image}")` } : {};
+
     return (
       <React.Fragment>
         <CSSTransition in={person != null} timeout={300} classNames="slide">
@@ -20,9 +22,7 @@ export default class PersonDetails extends Component {
               <div>
                 <div className="header">
                   <button className="close" onClick={this.props.onClose}>&#xf00d;</button>
-                  <div className="portrait" onClick={() => this.setState({ fullscreen: true })} style={{
-                    backgroundImage: `url("${person.image}")`
-                  }}>
+                  <div className={person.image ? 'portrait' : 'portrait empty'} onClick={() => this.setState({ fullscreen: true })} style={imgBg}>
                     <div className="gender" data-gender={person.gender}></div>
                   </div>
                   <div className="info">
