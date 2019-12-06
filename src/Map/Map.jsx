@@ -39,6 +39,7 @@ export default class LeafletMap extends Component {
             url={tiles} />
 
           <MarkerLayer
+            people={this.props.people}
             places={this.props.places}
             selectedPeople={this.props.selectedPeople}
             onSelectPlace={this.props.onSelectPlace} />

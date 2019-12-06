@@ -40,6 +40,9 @@ export default class SelectableMarker extends Component {
   }
 
   render() {
+    if (this.props.selected)
+      console.log(this.props.place);
+
     return (
       <Marker
         position={this.props.place.geom.coordinates.reverse()}
@@ -62,7 +65,7 @@ export default class SelectableMarker extends Component {
               {this.props.place.location_description}
             </p>
 
-            {this.props.place.pic_url && 
+            {this.props.place.place_image && 
               <React.Fragment>
                 <img 
                   src={this.props.place.place_image} 

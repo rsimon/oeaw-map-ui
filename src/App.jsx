@@ -36,7 +36,7 @@ export default class App extends Component {
       .then(result => {
         const people = result.data.map(record => {
           const clone = Object.assign({}, record);
-          delete clone.places;
+          clone.places = clone.places.map(p => p.location_name);
           return clone;
         }).sort((a, b) => (a.name > b.name) ? 1 : -1);
 
@@ -74,7 +74,7 @@ export default class App extends Component {
 
   onSelectPerson(person) {
     if (person)
-      this.setState({ selectedPeople: [ person.id ] });
+      this.setState({ selectedPeople: [ person ] });
     else 
       this.setState({ selectedPeople: [] });
   }
@@ -82,7 +82,7 @@ export default class App extends Component {
   onSelectPlace(place) {
     const people = (place) ? this.state.people.filter(person => {
       return person.name == place.name;
-    }).map(person => person.id) : null;
+    }) : null;
 
     this.setState({ selectedPeople: people });
   }
@@ -91,6 +91,7 @@ export default class App extends Component {
     return (
       <div className='container'>
         <Map
+          people={this.state.people}
           places={this.state.places}
           selectedPeople={this.state.selectedPeople}
           onSelectPlace={this.onSelectPlace.bind(this)}
